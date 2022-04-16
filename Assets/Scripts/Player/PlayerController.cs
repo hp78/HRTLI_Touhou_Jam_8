@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
         else if (currChain == 3)
         {
             anim.Play("Gun4");
-            currInputLock = 0.6f;
+            currInputLock = 0.75f;
             ++currChain;
         }
     }
@@ -229,7 +229,26 @@ public class PlayerController : MonoBehaviour
 
     void SpearAttack()
     {
-
+        Debug.Log("Spear attack");
+        if (currChain == 0)
+        {
+            anim.CrossFade("Spear1", 0.01f);
+            currInputLock = 0.4f;
+            ++currChain;
+            
+        }
+        else if (currChain == 1)
+        {
+            anim.CrossFade("Spear2", 0.01f);
+            currInputLock = 0.4f;
+            ++currChain;
+        }
+        else if (currChain == 2)
+        {
+            anim.CrossFade("Spear3", 0.01f);
+            currInputLock = 1.0f;
+            ++currChain;
+        }
     }
 
     void Roll()
