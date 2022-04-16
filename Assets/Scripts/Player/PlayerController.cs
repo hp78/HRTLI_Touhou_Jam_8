@@ -23,8 +23,11 @@ public class PlayerController : MonoBehaviour
     [Space(5)]
     bool isPlayerFacingLeft = false;
     bool isPlayerInvul = false;
+
     float invulFrameMax = 0.5f;
     float currInvulframe = 0.0f;
+    float currInputLock = 0.0f;
+    float currRollTime = 0.0f;
 
     [Space(5)]
     public float jumpThreshold;
@@ -38,8 +41,26 @@ public class PlayerController : MonoBehaviour
     private int layermask;
 
     [Space(5)]
-    public GameObject spriteBody;
+    public GameObject topRoot;
+    public GameObject lHandRoot;
+    public GameObject rHandRoot;
     public SpriteRenderer spriteRend;
+
+    [Space(5)]
+    public PlayerHandController lHandController;
+    public PlayerHandController rHandController;
+
+    /// <summary>
+    /// 0 = fist
+    /// 1 = gun
+    /// 2 = sword
+    /// 3 = spear
+    /// </summary>
+    public enum PlayerWeapon { FIST, GUN, SWORD, SPEAR };
+    [Space(5)]
+    public PlayerWeapon currRWeapon = PlayerWeapon.GUN;
+    public PlayerWeapon currLWeapon = PlayerWeapon.FIST;
+    int currChain = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -59,8 +80,18 @@ public class PlayerController : MonoBehaviour
     {
         if (!isPlayerAlive.val || isGamePaused.val || !isPlayerInControl) return;
 
+        currInputLock -= Time.deltaTime;
+        currRollTime -= Time.deltaTime;
+
+        if (currInputLock > 0.0f) return;
+        
+        Roll();
+        if (currRollTime > 0.1f) return;
+
         Movement();
         Jump();
+        Attack();
+        
     }
 
     void Movement()
@@ -71,15 +102,17 @@ public class PlayerController : MonoBehaviour
         if (movement.x < 0)
         {
             isPlayerFacingLeft = true;
-            spriteBody.transform.localScale = new Vector3(1, spriteBody.transform.localScale.y, spriteBody.transform.localScale.z);
+            topRoot.transform.localScale = new Vector3(1, topRoot.transform.localScale.y,
+                topRoot.transform.localScale.z);
         }
         else if (movement.x > 0)
         {
             isPlayerFacingLeft = false;
-            spriteBody.transform.localScale = new Vector3(-1, spriteBody.transform.localScale.y, spriteBody.transform.localScale.z);
+            topRoot.transform.localScale = new Vector3(-1, topRoot.transform.localScale.y,
+                topRoot.transform.localScale.z);
         }
 
-        //anim.SetFloat("XVelocity", movement.x);
+        anim.SetFloat("XVelocity", Mathf.Abs(movement.x * 0.125f));
         //anim.SetFloat("YVelocity", movement.y);
 
         rigidbody2d.velocity = movement;
@@ -89,8 +122,6 @@ public class PlayerController : MonoBehaviour
             currHealth = 0;
             DamagePlayer(9999);
         }
-
-        Debug.Log(movement);
     }
 
     void Jump()
@@ -102,26 +133,80 @@ public class PlayerController : MonoBehaviour
         if (hit || hit2)
         {
             inAir = false;
-            //anim.SetTrigger("TriggerLand");
+            anim.SetTrigger("TriggerLand");
         }
         else
         {
             inAir = true;
         }
 
-        if (!inAir && Input.GetKeyDown(KeyCode.Z))
+        if (!inAir && Input.GetKeyDown(KeyCode.X))
         {
             rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
-            //anim.SetTrigger("TriggerJump");
+            anim.SetTrigger("TriggerJump");
+        }
+    }
+
+    void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            anim.SetTrigger("Attack");
+            currInputLock = 0.26f;
+        }            
+    }
+
+    void Roll()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            anim.SetTrigger("TriggerRoll");
+            currRollTime = 1.0f;
         }
 
+        if(currRollTime > 0)
+        {
+            if (isPlayerFacingLeft)
+            {
+                rigidbody2d.velocity = new Vector2(-1f * moveForce, 0);
+            }
+            else
+            {
+                rigidbody2d.velocity = new Vector2(1f * moveForce, 0);
+            }
+        }    
+    }
+
+    public void IncreaseChain()
+    {
+        ++currChain;
+        anim.SetInteger("CurrChain", currChain);
+    }
+
+    public void ResetChain()
+    {
+        currChain = 0;
+        anim.SetInteger("CurrChain", 0);
+    }
+
+    void GunShoot()
+    {
 
     }
 
-    public void DamagePlayer(float val)
+    public void DamagePlayerWithKnockback(float val, Vector2 forceVector, float stunDura = 0.15f)
+    {
+        if (isPlayerInvul) return;
+        rigidbody2d.velocity += forceVector;
+
+        DamagePlayer(val, stunDura);
+    }
+
+    public void DamagePlayer(float val, float stunDura = 0.15f)
     {
         if (isPlayerInvul) return;
 
+        currInputLock = stunDura;
         currHealth -= val;
 
         if (currHealth <= 0)
