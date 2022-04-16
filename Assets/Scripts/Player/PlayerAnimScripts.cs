@@ -24,7 +24,7 @@ public class PlayerAnimScripts : MonoBehaviour
     public void ShootAttack()
     {
         lHandController.Shoot();
-        playerController.IncreaseChain();
+        //playerController.IncreaseChain();
     }
 
     public void ResetChain()

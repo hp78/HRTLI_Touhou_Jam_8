@@ -181,18 +181,27 @@ public class PlayerController : MonoBehaviour
     {
         if (currChain == 0)
         {
-            anim.CrossFade("HandGun1", 0.1f);
-            currInputLock = 0.25f;
+            anim.CrossFade("Gun1", 0.1f);
+            currInputLock = 0.4f;
+            ++currChain;
         }
         else if (currChain == 1)
         {
-            anim.Play("HandGun2");
-            currInputLock = 0.25f;
+            anim.Play("Gun2");
+            currInputLock = 0.4f;
+            ++currChain;
         }
         else if (currChain == 2)
         {
-            anim.Play("HandGun3");
-            currInputLock = 0.25f;
+            anim.Play("Gun3");
+            currInputLock = 0.4f;
+            ++currChain;
+        }
+        else if (currChain == 3)
+        {
+            anim.Play("Gun4");
+            currInputLock = 0.6f;
+            ++currChain;
         }
     }
 

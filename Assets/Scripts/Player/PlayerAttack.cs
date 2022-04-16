@@ -17,8 +17,8 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // do damage shit to enemy
+        // insert enemy getting damage yada yada
     }
 }
