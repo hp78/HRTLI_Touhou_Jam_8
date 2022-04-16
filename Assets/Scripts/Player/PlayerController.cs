@@ -151,19 +151,80 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            anim.SetTrigger("Attack");
-            currInputLock = 0.26f;
+            switch(currRWeapon)
+            {
+                case PlayerWeapon.FIST:
+                    FistAttack();
+                        break;
+
+                case PlayerWeapon.GUN:
+                    GunAttack();
+                        break;
+
+                case PlayerWeapon.SWORD:
+                    SwordAttack();
+                        break;
+
+                case PlayerWeapon.SPEAR:
+                    SpearAttack();
+                        break;
+            }
         }            
+    }
+
+    void FistAttack()
+    {
+        
+    }
+
+    void GunAttack()
+    {
+        if (currChain == 0)
+        {
+            anim.CrossFade("HandGun1", 0.1f);
+            currInputLock = 0.25f;
+        }
+        else if (currChain == 1)
+        {
+            anim.Play("HandGun2");
+            currInputLock = 0.25f;
+        }
+        else if (currChain == 2)
+        {
+            anim.Play("HandGun3");
+            currInputLock = 0.25f;
+        }
+    }
+
+    void SwordAttack()
+    {
+        if (currChain == 0)
+        {
+            anim.CrossFade("Sword1", 0.01f);
+            currInputLock = 0.65f;
+            ++currChain;
+        }
+        else if (currChain == 1)
+        {
+            anim.CrossFade("Sword2", 0.01f);
+            currInputLock = 0.6f;
+            ++currChain;
+        }
+        else if (currChain == 2)
+        {
+            anim.CrossFade("Sword3", 0.01f);
+            currInputLock = 0.6f;
+            ++currChain;
+        }
+    }
+
+    void SpearAttack()
+    {
+
     }
 
     void Roll()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            anim.SetTrigger("TriggerRoll");
-            currRollTime = 1.0f;
-        }
-
         if(currRollTime > 0)
         {
             if (isPlayerFacingLeft)
@@ -174,7 +235,18 @@ public class PlayerController : MonoBehaviour
             {
                 rigidbody2d.velocity = new Vector2(1f * moveForce, 0);
             }
-        }    
+        }
+        else if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            currChain = 0;
+            anim.CrossFade("BodyRoll", 0.01f);
+            //anim.SetTrigger("TriggerRoll");
+            currRollTime = 1.0f;
+
+            isPlayerInvul = true;
+            currInvulframe = 0.0f;
+            StartCoroutine(SetInvul());
+        }
     }
 
     public void IncreaseChain()
@@ -218,6 +290,16 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ReceiveDamage());
         }
         evntUpdateHealth?.Invoke(currHealth);
+    }
+
+    IEnumerator SetInvul()
+    {
+        currInvulframe = 0.0f;
+        isPlayerInvul = true;
+        Debug.Log("invul");
+        yield return new WaitForSeconds(0.9f);
+        Debug.Log("not invul");
+        isPlayerInvul = false;
     }
 
     IEnumerator ReceiveDamage()
