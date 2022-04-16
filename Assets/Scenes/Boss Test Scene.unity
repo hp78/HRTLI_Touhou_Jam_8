@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71840609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.47, y: 7.45, z: 0}
+  m_LocalPosition: {x: -0.08, y: 8.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -739,6 +739,7 @@ GameObject:
   - component: {fileID: 950634443}
   - component: {fileID: 950634444}
   - component: {fileID: 950634441}
+  - component: {fileID: 950634445}
   m_Layer: 0
   m_Name: BossSample
   m_TagString: Untagged
@@ -832,7 +833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950634437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.91, y: -1.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 362571078}
@@ -854,7 +855,7 @@ MonoBehaviour:
   cooldown: 3
   listOfPhases:
   - listOfAtk:
-    - {fileID: 950634444}
+    - {fileID: 950634445}
   - listOfAtk:
     - {fileID: 950634443}
     - {fileID: 950634442}
@@ -930,6 +931,25 @@ MonoBehaviour:
   missle: {fileID: 6344437492064119820, guid: 59e7c96357bd035469d55a049239dc28, type: 3}
   spawnCD: 0.5
   spawnAmt: 9
+--- !u!114 &950634445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950634437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778c29752727f39439ca3de442d8fa63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeat: 1
+  bossBase: {fileID: 0}
+  moveSpeed: 10
+  fanlaser: {fileID: 3016208465693742895, guid: ee9916a7e82f62946aa1a5a28c6baee8, type: 3}
+  movePt: {fileID: 71840611}
+  spawnCD: 4
+  spawnAmt: 4
 --- !u!1 &1366961413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +1043,7 @@ GameObject:
   - component: {fileID: 1980066149}
   - component: {fileID: 1980066148}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Sample Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

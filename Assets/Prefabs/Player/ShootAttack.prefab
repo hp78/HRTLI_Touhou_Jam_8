@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3836996110702800427}
   - component: {fileID: 2641466984018651070}
-  - component: {fileID: 8855696024153648897}
   m_Layer: 9
   m_Name: Square
   m_TagString: PlayerAttack
@@ -83,32 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8855696024153648897
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2352108329897722128}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &3961073471987594175
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5115581671337534573}
   - component: {fileID: 4747391551337290302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,9 +174,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5625111196121553381}
   - component: {fileID: 6508122290721381803}
-  m_Layer: 0
+  - component: {fileID: 6690053461563003082}
+  m_Layer: 9
   m_Name: ShootAttack
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,6 +213,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   lifetime: 0.1
+--- !u!61 &6690053461563003082
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607743902409296317}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -5, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.1}
+  m_EdgeRadius: 0
 --- !u!1 &8073732852482828706
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5105418062723418686}
   - component: {fileID: 545770739821240369}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

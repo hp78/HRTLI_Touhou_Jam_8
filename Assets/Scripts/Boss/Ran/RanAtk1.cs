@@ -8,11 +8,11 @@ public class RanAtk1 : AtkBase
     [SerializeField] int point;
     [SerializeField] float maxspd;
     [SerializeField] float accel;
-    [SerializeField] float skillCD;
     [SerializeField] float waitCD;
 
     float internalCD;
     float currentSpd;
+    bool reverse;
 
     // Start is called before the first frame update
     void Start()
@@ -33,28 +33,59 @@ public class RanAtk1 : AtkBase
 
     }
 
+    public override void UpgradeSkill()
+    {
+        maxspd += accel;
+        waitCD /= 2f;
+    }
+
     IEnumerator SpinAttack()
     {
-        point = 0;
-        while (point < rollPoints.Length)
+
+        if (!reverse)
         {
-            while ((transform.position - rollPoints[point].position).magnitude > 0.1f)
+            point = 0;
+
+            while (point < rollPoints.Length)
             {
-                float step = maxspd * Time.deltaTime;
+                while ((transform.position - rollPoints[point].position).magnitude > 0.1f)
+                {
+                    float step = maxspd * Time.deltaTime;
 
-                // move sprite towards the target location
-                transform.position = Vector2.MoveTowards(transform.position, rollPoints[point].position, step);
-                yield return 0;
+                    // move sprite towards the target location
+                    transform.position = Vector2.MoveTowards(transform.position, rollPoints[point].position, step);
+                    yield return 0;
+                }
+                ++point;
+                yield return new WaitForSeconds(waitCD);
+
             }
-            ++point;
-            yield return new WaitForSeconds(waitCD);
+        }
+        else
+        {
+            point = rollPoints.Length - 1;
+            while (point >= 0)
+            {
+                while ((transform.position - rollPoints[point].position).magnitude > 0.1f)
+                {
+                    float step = maxspd * Time.deltaTime;
 
+                    // move sprite towards the target location
+                    transform.position = Vector2.MoveTowards(transform.position, rollPoints[point].position, step);
+                    yield return 0;
+                }
+                --point;
+                yield return new WaitForSeconds(waitCD);
+
+            }
         }
 
-        yield return new WaitForSeconds(skillCD);
+        reverse = !reverse;
 
         bossBase.AtkIsDone();
 
         yield return 0;
     }
+
+   
 }

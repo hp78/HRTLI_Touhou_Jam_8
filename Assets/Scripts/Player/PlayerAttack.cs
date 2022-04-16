@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // insert enemy getting damage yada yada
+        if (collision.CompareTag("Enemy"))
+            collision.GetComponent<BossBase>().TakeDamage(damage);
     }
 }

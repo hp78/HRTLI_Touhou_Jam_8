@@ -13,6 +13,8 @@ public class RanAtk2 : AtkBase
     public float duration;
 
     public float spawnCD;
+    public float upgradeCD;
+    public int upgradeAmt;
     public int spawnAmt;
 
     bool invert;
@@ -31,6 +33,11 @@ public class RanAtk2 : AtkBase
         StartCoroutine(Fire());
 
 
+    }
+    public override void UpgradeSkill()
+    {
+        spawnCD -= upgradeCD;
+        spawnAmt += upgradeAmt;
     }
     // Update is called once per frame
     void Update()

@@ -35,6 +35,12 @@ public class Laser : MonoBehaviour
         }
     }
 
+    public void ManualFire()
+    {
+        StartCoroutine(FIRELASER());
+
+    }
+
     IEnumerator FIRELASER()
     {
 
@@ -51,6 +57,8 @@ public class Laser : MonoBehaviour
             yield return 0;
 
         }
+        boxCol.enabled = false;
+
         Destroy(this.gameObject, 0.5f);
         yield return 0;
     }

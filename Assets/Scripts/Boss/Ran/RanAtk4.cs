@@ -12,6 +12,8 @@ public class RanAtk4 : AtkBase
     public GameObject missle;
 
     public float spawnCD;
+    public float upgradeCD;
+    public int upgradeAmt;
     public int spawnAmt;
 
     float internalSpawnCD;
@@ -29,10 +31,10 @@ public class RanAtk4 : AtkBase
         StartCoroutine(Move());
 
     }
-    // Update is called once per frame
-    void Update()
+    public override void UpgradeSkill()
     {
-        
+        spawnCD -= upgradeCD;
+        spawnAmt += upgradeAmt;
     }
     IEnumerator Fire()
     {
@@ -71,9 +73,9 @@ public class RanAtk4 : AtkBase
             transform.position = Vector2.MoveTowards(transform.position, rollPoints[point].position, step);
             yield return 0;
         }
-        bossBase.AtkIsDone();
 
         yield return 0;
+        bossBase.AtkIsDone();
 
     }
 
