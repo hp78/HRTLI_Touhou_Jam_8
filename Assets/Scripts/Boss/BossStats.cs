@@ -8,6 +8,6 @@ using UnityEngine;
 public class BossStats : ScriptableObject
 {
 
-    public int Health;
-    public int NoOfPhases;
+    public float[] Health;
+
 }

@@ -45,7 +45,7 @@ public class RanAtk3 : AtkBase
                 internalSpawnCD -= Time.deltaTime;
                 yield return 0;
             }
-            Vector3 pos = new Vector3(Random.Range(-25f,25f), groundLevel.position.y, 0.0f);
+            Vector3 pos = new Vector3(Random.Range(-20f,20f), groundLevel.position.y, 0.0f);
             Instantiate(beam, pos, Quaternion.identity);
             internalSpawnCD = spawnCD;
                
@@ -54,10 +54,7 @@ public class RanAtk3 : AtkBase
 
         }
 
-        // bossBase.AtkIsDone();
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(Fire());
-
+        bossBase.AtkIsDone();
         yield return 0;
 
     }
