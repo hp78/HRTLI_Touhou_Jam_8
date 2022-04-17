@@ -411,9 +411,9 @@ public class PlayerController : MonoBehaviour
     {
         currInvulframe = 0.0f;
         isPlayerInvul = true;
-        Debug.Log("invul");
-        yield return new WaitForSeconds(0.9f);
-        Debug.Log("not invul");
+
+        yield return new WaitForSeconds(0.75f);
+
         isPlayerInvul = false;
     }
 
