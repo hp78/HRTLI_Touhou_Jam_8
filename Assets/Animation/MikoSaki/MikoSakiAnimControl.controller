@@ -117,7 +117,7 @@ AnimatorStateMachine:
     m_Position: {x: 235, y: 65, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4036217693674498582}
-    m_Position: {x: 498, y: 237.5, z: 0}
+    m_Position: {x: 520, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2141150825891599580}
     m_Position: {x: 533, y: 302.5, z: 0}
@@ -127,6 +127,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -6810618459408203063}
     m_Position: {x: 688, y: 241.5, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 3049410466094802992}
+    m_Position: {x: 570, y: 114.5, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -158,6 +161,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 1da364a3f84fea642ab2da5ae8be91ee, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &3049410466094802992
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MikoSakiRightHopebeams
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 2e42323fd07746a41b158bc80722ec31, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
