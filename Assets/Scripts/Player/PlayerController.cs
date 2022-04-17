@@ -251,20 +251,38 @@ public class PlayerController : MonoBehaviour
     {
         if (currChain == 0)
         {
-            anim.CrossFade("Sword1", 0.01f);
-            currInputLock = 0.55f;
+            anim.CrossFade("Sword1", 0.05f);
+            currInputLock = 0.5f;
             ++currChain;
         }
         else if (currChain == 1)
         {
-            anim.CrossFade("Sword2", 0.01f);
+            anim.CrossFade("Shield1", 0.05f);
             currInputLock = 0.5f;
             ++currChain;
         }
         else if (currChain == 2)
         {
-            anim.CrossFade("Sword3", 0.01f);
-            currInputLock = 0.6f;
+            anim.CrossFade("Shield2", 0.05f);
+            currInputLock = 0.5f;
+            ++currChain;
+        }
+        else if (currChain == 3)
+        {
+            anim.CrossFade("Sword2", 0.05f);
+            currInputLock = 0.5f;
+            ++currChain;
+        }
+        else if (currChain == 4)
+        {
+            anim.CrossFade("Shield3", 0.05f);
+            currInputLock = 0.5f;
+            ++currChain;
+        }
+        else if (currChain == 5)
+        {
+            anim.CrossFade("Sword3", 0.05f);
+            currInputLock = 0.5f;
             ++currChain;
         }
     }
@@ -337,6 +355,25 @@ public class PlayerController : MonoBehaviour
             lGun.SetActive(true);
             rHold.SetActive(true);
             rGun.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            currRWeapon = PlayerWeapon.SWORD;
+            ResetHands();
+            lHold.SetActive(true);
+            lSword.SetActive(true);
+            rFist.SetActive(true);
+            rShield.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            currRWeapon = PlayerWeapon.SPEAR;
+            ResetHands();
+            lFist.SetActive(true);
+            rFist.SetActive(true);
+            lSpear.SetActive(true);
         }
     }
 
