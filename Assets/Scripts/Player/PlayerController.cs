@@ -515,6 +515,7 @@ public class PlayerController : MonoBehaviour
     {
         currInvulframe = 0.0f;
         isPlayerInvul = true;
+        spriteRend.gameObject.SetActive(true);
 
         while (currInvulframe < invulFrameMax)
         {
@@ -531,6 +532,7 @@ public class PlayerController : MonoBehaviour
             currInvulframe += 0.05f;
         }
 
+        spriteRend.gameObject.SetActive(false);
         spriteRend.color = Color.white;
         isPlayerInvul = false;
     }
