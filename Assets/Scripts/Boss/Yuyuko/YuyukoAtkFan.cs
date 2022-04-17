@@ -12,12 +12,15 @@ public class YuyukoAtkFan : AtkBase
     public float spawnCD;
     public int spawnAmt;
 
+
+    public GameObject particles;
     float internalSpawnCD;
     int internalAmt;
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(Move());
 
     }
 
@@ -52,7 +55,7 @@ public class YuyukoAtkFan : AtkBase
 
         internalAmt = spawnAmt;
         internalSpawnCD = spawnCD;
-
+        particles.SetActive(true);
         while (internalAmt > 0)
         {
             while (internalSpawnCD > 0.0f)
@@ -70,7 +73,9 @@ public class YuyukoAtkFan : AtkBase
         }
 
         // bossBase.AtkIsDone();
-       // yield return new WaitForSeconds(2f);
+        // yield return new WaitForSeconds(2f);
+        particles.SetActive(false);
+
         StartCoroutine(Fire());
 
         yield return 0;

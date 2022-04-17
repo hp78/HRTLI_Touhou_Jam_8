@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 2751378417671675102}
   - component: {fileID: 3186108947318395698}
   - component: {fileID: 3350971130968228983}
+  - component: {fileID: 6434381468700441754}
   m_Layer: 10
   m_Name: Laser
   m_TagString: EnemyBullet
@@ -164,6 +165,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6434381468700441754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643339974084120567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a59ccd72013351498dee372e0ee158f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 15
+  knockback: 0
 --- !u!1 &7622919833416180494
 GameObject:
   m_ObjectHideFlags: 0

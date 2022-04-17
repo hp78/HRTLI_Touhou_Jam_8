@@ -13,6 +13,7 @@ public class RanAtk1 : AtkBase
 
     public GameObject ranSprite;
     public Animator animator;
+    public CircleCollider2D spinCol;
 
     float internalCD;
     float currentSpd;
@@ -47,10 +48,12 @@ public class RanAtk1 : AtkBase
     {
         animator.Play("Spin");
         ranSprite.SetActive(false);
+        spinCol.enabled = true;
         if (!reverse)
         {
             point = 0;
-
+            var temp = Random.Range(0, 2);
+            if (temp == 1) point = rollPoints.Length - 1;
             while (point < rollPoints.Length)
             {
                 while ((transform.position - rollPoints[point].position).magnitude > 0.1f)
@@ -69,6 +72,9 @@ public class RanAtk1 : AtkBase
         else
         {
             point = rollPoints.Length - 1;
+            var temp = Random.Range(0, 2);
+            if (temp == 1) point = 0;
+
             while (point >= 0)
             {
                 while ((transform.position - rollPoints[point].position).magnitude > 0.1f)
@@ -88,6 +94,7 @@ public class RanAtk1 : AtkBase
         reverse = !reverse;
         animator.Play("Default");
         ranSprite.SetActive(true);
+        spinCol.enabled = false;
 
         bossBase.AtkIsDone();
 

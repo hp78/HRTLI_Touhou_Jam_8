@@ -45,13 +45,12 @@ public class YuyukoAtkMeleeSlap : AtkBase
             if (internalSpawnCD < 0.0f)
             {
                 FanSlap temp;
-
                 if (invert)
                 {
                     if(flip)
-                        temp = Instantiate(fans, transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f)).GetComponent<FanSlap>();
+                        temp = Instantiate(fans, new Vector2(transform.position.x+1f, transform.position.y + 1.25f), transform.rotation * Quaternion.Euler(0f, 180f, 0f)).GetComponent<FanSlap>();
                     else
-                        temp = Instantiate(fans, transform.position, transform.rotation * Quaternion.Euler(0f, 0f, 0f)).GetComponent<FanSlap>();
+                        temp = Instantiate(fans, new Vector2(transform.position.x-1f, transform.position.y + 1.25f), transform.rotation * Quaternion.Euler(0f, 0f, 0f)).GetComponent<FanSlap>();
 
                     temp.reverse = true;
                     invert = !invert;
@@ -59,9 +58,9 @@ public class YuyukoAtkMeleeSlap : AtkBase
                 else
                 {
                     if(flip)
-                        temp = Instantiate(fans, transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 180f)).GetComponent<FanSlap>();
+                        temp = Instantiate(fans, new Vector2(transform.position.x+1f, transform.position.y + 1.25f), transform.rotation * Quaternion.Euler(0f, 180f, 180f)).GetComponent<FanSlap>();
                     else
-                        temp = Instantiate(fans, transform.position, transform.rotation * Quaternion.Euler(0f, 0f, 180f)).GetComponent<FanSlap>();
+                        temp = Instantiate(fans, new Vector2(transform.position.x-1f, transform.position.y + 1.25f), transform.rotation * Quaternion.Euler(0f, 0f, 180f)).GetComponent<FanSlap>();
 
                     temp.reverse = false;
                     invert = !invert;
@@ -69,7 +68,7 @@ public class YuyukoAtkMeleeSlap : AtkBase
                 }
                 --internalAmt;
 
-                while ((transform.position - player.position).magnitude > 1.5f)
+                while ((transform.position - player.position).magnitude > 2.5f)
                 {
                     float step = moveSpd * Time.deltaTime;
                     if (transform.position.x - player.position.x < 0.0f) flip = true;
@@ -93,7 +92,7 @@ public class YuyukoAtkMeleeSlap : AtkBase
 
     IEnumerator Move()
     {
-        while ((transform.position - player.position).magnitude > 1.5f)
+        while ((transform.position - player.position).magnitude > 2.5f)
         {
             float step = moveSpd * Time.deltaTime;
             if (transform.position.x - player.position.x < 0.0f) flip = true;
