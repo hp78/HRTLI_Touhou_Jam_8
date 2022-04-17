@@ -21,6 +21,10 @@ public class RanAtk2 : AtkBase
     float internalSpawnCD;
     float internalDuration;
     int internalAmt;
+
+    public GameObject ranWoke;
+    public GameObject ranNormal;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +51,9 @@ public class RanAtk2 : AtkBase
 
     IEnumerator Fire()
     {
+        animator.Play("PoP");
+        ranNormal.SetActive(false);
+        ranWoke.SetActive(true);
         target.transform.position = transform.position;
         int rand = Random.Range(0, fireSpots.Length);
         Vector3 direction = (fireSpots[rand].position - transform.position).normalized; 
@@ -83,6 +90,9 @@ public class RanAtk2 : AtkBase
             yield return 0;
 
         }
+        animator.Play("Default");
+        ranNormal.SetActive(true);
+        ranWoke.SetActive(false);
         bossBase.AtkIsDone();
 
         yield return 0;

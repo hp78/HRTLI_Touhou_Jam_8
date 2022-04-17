@@ -16,7 +16,10 @@ public class BossBase : MonoBehaviour
     public float cooldown;
     public bool phaseEnd;
 
+    public SpriteRenderer[] sprites;
 
+    public float flickerCD;
+    float internalFlickerCD;
     [Serializable]
     public struct ListOfPhase
     {
@@ -36,7 +39,10 @@ public class BossBase : MonoBehaviour
 
     }
 
-
+    private void Update()
+    {
+        FlickerDmg();
+    }
     public void AtkIsDone()
     {
         if(phaseEnd)
@@ -87,10 +93,30 @@ public class BossBase : MonoBehaviour
                 phaseEnd = true;
             }
         }
+        internalFlickerCD = flickerCD;
     }
 
     public void End()
     {
         Debug.Log("END");
+    }
+
+    public void FlickerDmg()
+    {
+        if(internalFlickerCD>0.0f)
+        {
+            foreach(SpriteRenderer r in sprites)
+            {
+                r.color = Color.red;
+            }
+        }
+        else
+        {
+            foreach (SpriteRenderer r in sprites)
+            {
+                r.color = Color.white;
+            }
+        }
+        internalFlickerCD -= Time.deltaTime;
     }
 }
