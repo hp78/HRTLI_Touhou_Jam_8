@@ -71,6 +71,22 @@ public class PlayerController : MonoBehaviour
     public GameObject pfSpearAttack;
     public GameObject pfSpearAttack2;
 
+    [Header("LeftHandObjects")]
+    public GameObject lFist;
+    public GameObject lHold;
+    public GameObject lGun;
+    public GameObject lSword;
+    public GameObject lSpear;
+    public GameObject lShield;
+
+    [Header("RightHandObjects")]
+    public GameObject rFist;
+    public GameObject rHold;
+    public GameObject rGun;
+    public GameObject rSword;
+    public GameObject rSpear;
+    public GameObject rShield;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,7 +116,7 @@ public class PlayerController : MonoBehaviour
         Movement();
         Jump();
         Attack();
-        
+        SwitchWeapon();
     }
 
     void Movement()
@@ -301,6 +317,44 @@ public class PlayerController : MonoBehaviour
             currInvulframe = 0.0f;
             StartCoroutine(SetInvul());
         }
+    }
+
+    void SwitchWeapon()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currRWeapon = PlayerWeapon.FIST;
+            ResetHands();
+            lFist.SetActive(true);
+            rFist.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currRWeapon = PlayerWeapon.GUN;
+            ResetHands();
+            lHold.SetActive(true);
+            lGun.SetActive(true);
+            rHold.SetActive(true);
+            rGun.SetActive(true);
+        }
+    }
+
+    void ResetHands()
+    {
+        lFist.SetActive(false);
+        lHold.SetActive(false);
+        lGun.SetActive(false);
+        lSword.SetActive(false);
+        lSpear.SetActive(false);
+        lShield.SetActive(false);
+
+        rFist.SetActive(false);
+        rHold.SetActive(false);
+        rGun.SetActive(false);
+        rSword.SetActive(false);
+        rSpear.SetActive(false);
+        rShield.SetActive(false);
     }
 
     public void IncreaseChain()

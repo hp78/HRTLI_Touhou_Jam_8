@@ -845,6 +845,18 @@ MonoBehaviour:
   pfSwordAttack: {fileID: 657945981438480438, guid: b64198909af254d4d8e2395d08315d08, type: 3}
   pfSpearAttack: {fileID: 2358204488883180091, guid: 8fda7b633a880e5448ef373867a7aaa6, type: 3}
   pfSpearAttack2: {fileID: 7144426668803897116, guid: b3f46b6d35eb8c045bd4fead114fa870, type: 3}
+  lFist: {fileID: 4413986974319416494}
+  lHold: {fileID: 7832682831158848810}
+  lGun: {fileID: 8565958869439735540}
+  lSword: {fileID: 5540091406882599496}
+  lSpear: {fileID: 551965336053191167}
+  lShield: {fileID: 2794010486128096770}
+  rFist: {fileID: 8627608184597077270}
+  rHold: {fileID: 6275532919358613609}
+  rGun: {fileID: 9001407803372318198}
+  rSword: {fileID: 9001407804514132564}
+  rSpear: {fileID: 9001407803185473154}
+  rShield: {fileID: 9001407804354611504}
 --- !u!1 &9001407803185473154
 GameObject:
   m_ObjectHideFlags: 0
