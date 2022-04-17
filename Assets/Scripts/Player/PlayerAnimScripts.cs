@@ -27,6 +27,26 @@ public class PlayerAnimScripts : MonoBehaviour
         //playerController.IncreaseChain();
     }
 
+    public void PunchAttack()
+    {
+        playerController.SpawnFistHitbox();
+    }
+
+    public void SwordAttack()
+    {
+        playerController.SpawnSwordHitbox();
+    }
+
+    public void SpearAttack1()
+    {
+        playerController.SpawnSpearHitbox1();
+    }
+
+    public void SpearAttack2()
+    {
+        playerController.SpawnSpearHitbox2();
+    }
+
     public void ResetChain()
     {
         playerController.ResetChain();

@@ -839,6 +839,12 @@ MonoBehaviour:
   rHandController: {fileID: 9001407803485680383}
   currRWeapon: 0
   currLWeapon: 0
+  shootSpawnPos: {fileID: 9001407803345716117}
+  pfGunAttack: {fileID: 4607743902409296317, guid: 67784738510140143a42b476aef2f50a, type: 3}
+  pfFistAttack: {fileID: 7433886897769977139, guid: 1613e59c2bbcf2640a32ba575318c12c, type: 3}
+  pfSwordAttack: {fileID: 657945981438480438, guid: b64198909af254d4d8e2395d08315d08, type: 3}
+  pfSpearAttack: {fileID: 2358204488883180091, guid: 8fda7b633a880e5448ef373867a7aaa6, type: 3}
+  pfSpearAttack2: {fileID: 7144426668803897116, guid: b3f46b6d35eb8c045bd4fead114fa870, type: 3}
 --- !u!1 &9001407803185473154
 GameObject:
   m_ObjectHideFlags: 0

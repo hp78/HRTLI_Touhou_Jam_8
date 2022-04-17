@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 6508122290721381803}
   - component: {fileID: 6690053461563003082}
   m_Layer: 9
-  m_Name: ShootAttack
+  m_Name: ShootHitbox
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  lifetime: 0.1
+  lifetime: 0.2
 --- !u!61 &6690053461563003082
 BoxCollider2D:
   m_ObjectHideFlags: 0

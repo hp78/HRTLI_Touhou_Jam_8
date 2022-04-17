@@ -62,6 +62,15 @@ public class PlayerController : MonoBehaviour
     public PlayerWeapon currLWeapon = PlayerWeapon.FIST;
     int currChain = 0;
 
+    [Space(5)]
+    public GameObject shootSpawnPos;
+
+    public GameObject pfGunAttack;
+    public GameObject pfFistAttack;
+    public GameObject pfSwordAttack;
+    public GameObject pfSpearAttack;
+    public GameObject pfSpearAttack2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -306,10 +315,71 @@ public class PlayerController : MonoBehaviour
         anim.SetInteger("CurrChain", 0);
     }
 
-    void GunShoot()
+    public void SpawnFistHitbox()
     {
-
+        if (topRoot.transform.localScale.x > 0)
+        {
+            Instantiate(pfFistAttack, shootSpawnPos.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            GameObject go = Instantiate(pfFistAttack, shootSpawnPos.transform.position, Quaternion.identity);
+            go.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
+    public void SpawnGunHitbox()
+    {
+        if (topRoot.transform.localScale.x > 0)
+        {
+            Instantiate(pfGunAttack, shootSpawnPos.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            GameObject go = Instantiate(pfGunAttack, shootSpawnPos.transform.position, Quaternion.identity);
+            go.transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    public void SpawnSwordHitbox()
+    {
+        if (topRoot.transform.localScale.x > 0)
+        {
+            Instantiate(pfSwordAttack, shootSpawnPos.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            GameObject go = Instantiate(pfSwordAttack, shootSpawnPos.transform.position, Quaternion.identity);
+            go.transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    public void SpawnSpearHitbox1()
+    {
+        if (topRoot.transform.localScale.x > 0)
+        {
+            Instantiate(pfSpearAttack, shootSpawnPos.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            GameObject go = Instantiate(pfSpearAttack, shootSpawnPos.transform.position, Quaternion.identity);
+            go.transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    public void SpawnSpearHitbox2()
+    {
+        if (topRoot.transform.localScale.x > 0)
+        {
+            Instantiate(pfSpearAttack2, shootSpawnPos.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            GameObject go = Instantiate(pfSpearAttack2, shootSpawnPos.transform.position, Quaternion.identity);
+            go.transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+
 
     public void DamagePlayerWithKnockback(float val, Vector2 forceVector, float stunDura = 0.15f)
     {
