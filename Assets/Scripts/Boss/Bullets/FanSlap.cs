@@ -11,6 +11,8 @@ public class FanSlap : MonoBehaviour
     public bool right;
     public bool reverse;
 
+    public float fadeStart;
+
     public SpriteRenderer sprite;
     public TrailRenderer trail;
 
@@ -34,9 +36,13 @@ public class FanSlap : MonoBehaviour
             else
             transform.Rotate(Vector3.forward * (-rotSpeed * Time.deltaTime));
 
-            sprite.color = new Color(1f, 1f, 1f, sprite.color.a - FadeSpd * Time.deltaTime);
-            trail.startColor = new Color(1f, 1f, 1f, trail.startColor.a - FadeSpd * Time.deltaTime);
-            trail.endColor = new Color(1f, 1f, 1f, trail.endColor.a - FadeSpd * Time.deltaTime);
+            if (fadeStart < 0.0f)
+            {
+                sprite.color = new Color(1f, 1f, 1f, sprite.color.a - FadeSpd * Time.deltaTime);
+                trail.startColor = new Color(1f, 1f, 1f, trail.startColor.a - FadeSpd * Time.deltaTime);
+                trail.endColor = new Color(1f, 1f, 1f, trail.endColor.a - FadeSpd * Time.deltaTime);
+            }
+            fadeStart -= Time.deltaTime;
             yield return 0;
 
         }

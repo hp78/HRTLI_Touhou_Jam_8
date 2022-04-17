@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5340449456447530877}
   - component: {fileID: 5340449456447530878}
   - component: {fileID: 5340449456447530876}
+  - component: {fileID: 1363461339418624626}
   m_Layer: 10
   m_Name: Square
   m_TagString: EnemyBullet
@@ -90,7 +91,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5340449456447530879}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -109,6 +110,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1363461339418624626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340449456447530879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a59ccd72013351498dee372e0ee158f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 20
+  knockback: 0
 --- !u!1 &5340449456497581840
 GameObject:
   m_ObjectHideFlags: 0

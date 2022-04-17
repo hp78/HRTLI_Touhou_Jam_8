@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     public bool inAir;
     bool isAttacking = false;
-    float currHealth = 50;
+    public float currHealth;  // made it public to test
 
     public Rigidbody2D rigidbody2d;
     public Vector3 movement;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         //anim = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
-        currHealth = 50;
+        currHealth = 100;
 
         layermask = (1 << 8); //Player
         layermask |= (1 << 9);//enemy
@@ -477,6 +477,7 @@ public class PlayerController : MonoBehaviour
         if (isPlayerInvul) return;
         rigidbody2d.velocity += forceVector;
 
+
         DamagePlayer(val, stunDura);
     }
 
@@ -496,6 +497,8 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ReceiveDamage());
         }
         evntUpdateHealth?.Invoke(currHealth);
+
+
     }
 
     IEnumerator SetInvul()
