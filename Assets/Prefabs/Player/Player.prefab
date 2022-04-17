@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5218732895005267535
 Transform:
   m_ObjectHideFlags: 0
@@ -644,7 +644,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 5fc058cf04997634596c8db264b4a76c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -837,7 +837,7 @@ MonoBehaviour:
   spriteRend: {fileID: 9001407803198562616}
   lHandController: {fileID: 9001407803963860938}
   rHandController: {fileID: 9001407803485680383}
-  currRWeapon: 3
+  currRWeapon: 0
   currLWeapon: 0
 --- !u!1 &9001407803185473154
 GameObject:

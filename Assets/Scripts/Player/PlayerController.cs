@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public enum PlayerWeapon { FIST, GUN, SWORD, SPEAR };
     [Space(5)]
-    public PlayerWeapon currRWeapon = PlayerWeapon.GUN;
+    public PlayerWeapon currRWeapon = PlayerWeapon.FIST;
     public PlayerWeapon currLWeapon = PlayerWeapon.FIST;
     int currChain = 0;
 
@@ -174,7 +174,24 @@ public class PlayerController : MonoBehaviour
 
     void FistAttack()
     {
-        
+        if (currChain == 0)
+        {
+            anim.CrossFade("Fist1", 0.1f);
+            currInputLock = 0.4f;
+            ++currChain;
+        }
+        else if (currChain % 2 == 1)
+        {
+            anim.Play("Fist2");
+            currInputLock = 0.15f;
+            ++currChain;
+        }
+        else
+        {
+            anim.Play("Fist3");
+            currInputLock = 0.15f;
+            ++currChain;
+        }
     }
 
     void GunAttack()
@@ -210,13 +227,13 @@ public class PlayerController : MonoBehaviour
         if (currChain == 0)
         {
             anim.CrossFade("Sword1", 0.01f);
-            currInputLock = 0.65f;
+            currInputLock = 0.55f;
             ++currChain;
         }
         else if (currChain == 1)
         {
             anim.CrossFade("Sword2", 0.01f);
-            currInputLock = 0.6f;
+            currInputLock = 0.5f;
             ++currChain;
         }
         else if (currChain == 2)
@@ -233,14 +250,14 @@ public class PlayerController : MonoBehaviour
         if (currChain == 0)
         {
             anim.CrossFade("Spear1", 0.01f);
-            currInputLock = 0.4f;
+            currInputLock = 0.45f;
             ++currChain;
             
         }
         else if (currChain == 1)
         {
             anim.CrossFade("Spear2", 0.01f);
-            currInputLock = 0.4f;
+            currInputLock = 0.45f;
             ++currChain;
         }
         else if (currChain == 2)
