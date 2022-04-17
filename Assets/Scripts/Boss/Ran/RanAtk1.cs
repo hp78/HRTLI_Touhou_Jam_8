@@ -10,6 +10,10 @@ public class RanAtk1 : AtkBase
     [SerializeField] float accel;
     [SerializeField] float waitCD;
 
+
+    public GameObject ranSprite;
+    public Animator animator;
+
     float internalCD;
     float currentSpd;
     bool reverse;
@@ -41,7 +45,8 @@ public class RanAtk1 : AtkBase
 
     IEnumerator SpinAttack()
     {
-
+        animator.Play("Spin");
+        ranSprite.SetActive(false);
         if (!reverse)
         {
             point = 0;
@@ -81,6 +86,8 @@ public class RanAtk1 : AtkBase
         }
 
         reverse = !reverse;
+        animator.Play("Default");
+        ranSprite.SetActive(true);
 
         bossBase.AtkIsDone();
 

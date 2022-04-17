@@ -19,6 +19,10 @@ public class RanAtk4 : AtkBase
     float internalSpawnCD;
     int internalAmt;
 
+
+    public GameObject ranWoke;
+    public GameObject ranNormal;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +66,8 @@ public class RanAtk4 : AtkBase
 
     IEnumerator Move()
     {
+        animator.Play("Spin");
+        ranNormal.SetActive(false);
         while ((transform.position - rollPoints[point].position).magnitude < 0.1f)
             point = Random.Range(0, rollPoints.Length);
 
@@ -74,6 +80,9 @@ public class RanAtk4 : AtkBase
             yield return 0;
         }
 
+
+        animator.Play("Default");
+        ranNormal.SetActive(true);
         yield return 0;
         bossBase.AtkIsDone();
 

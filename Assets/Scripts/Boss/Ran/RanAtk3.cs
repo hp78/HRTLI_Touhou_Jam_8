@@ -14,6 +14,10 @@ public class RanAtk3 : AtkBase
     float internalSpawnCD;
     int internalAmt;
 
+    public GameObject ranWoke;
+    public GameObject ranNormal;
+    public Animator animator;
+    public GameObject particles;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +39,11 @@ public class RanAtk3 : AtkBase
     }
     IEnumerator Fire()
     {
+
+        animator.Play("PoP");
+        ranNormal.SetActive(false);
+        ranWoke.SetActive(true);
+        particles.SetActive(true);
         internalAmt = spawnAmt;
         internalSpawnCD = spawnCD;
 
@@ -53,6 +62,10 @@ public class RanAtk3 : AtkBase
             yield return 0;
 
         }
+        animator.Play("Default");
+        ranNormal.SetActive(true);
+        ranWoke.SetActive(false);
+        particles.SetActive(false);
 
         bossBase.AtkIsDone();
         yield return 0;
