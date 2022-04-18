@@ -8,6 +8,7 @@ public class RanAtk2 : AtkBase
     public Transform[] fireSpots;
     public GameObject laser;
     public GameObject target;
+    public AudioSource audioS;
 
     public float targetMovement;
     public float duration;
@@ -63,6 +64,8 @@ public class RanAtk2 : AtkBase
 
         internalDuration = duration;
         internalAmt = spawnAmt;
+        audioS.Play();
+
         while (internalDuration > 0f)
         {
             internalDuration -= Time.deltaTime;

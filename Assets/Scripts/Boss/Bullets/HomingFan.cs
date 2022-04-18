@@ -18,6 +18,8 @@ public class HomingFan : MonoBehaviour
     public float fadeTime;
     public Animator anim;
 
+    public AudioSource audioS;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +56,8 @@ public class HomingFan : MonoBehaviour
         }
 
         Vector3 point = new Vector3(player.position.x, player.position.y,0.0f);
-        while((transform.position - point).magnitude>0.01f)
+        audioS.Play();
+        while ((transform.position - point).magnitude>0.01f)
         {
             float step = startSpeed * Time.deltaTime;
 

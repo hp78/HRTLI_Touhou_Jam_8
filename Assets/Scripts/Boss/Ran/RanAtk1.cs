@@ -14,6 +14,7 @@ public class RanAtk1 : AtkBase
     public GameObject ranSprite;
     public Animator animator;
     public CircleCollider2D spinCol;
+    public AudioSource audioS;
 
     float internalCD;
     float currentSpd;
@@ -56,8 +57,11 @@ public class RanAtk1 : AtkBase
             point = 0;
             var temp = Random.Range(0, 2);
             if (temp == 1) point = rollPoints.Length - 1;
+            else point++;
             while (point < rollPoints.Length)
             {
+                audioS.Play();
+
                 while ((transform.position - rollPoints[point].position).magnitude > 0.1f)
                 {
                     float step = maxspd * Time.deltaTime;
@@ -67,6 +71,7 @@ public class RanAtk1 : AtkBase
                     yield return 0;
                 }
                 ++point;
+
                 yield return new WaitForSeconds(waitCD);
 
             }
@@ -76,9 +81,12 @@ public class RanAtk1 : AtkBase
             point = rollPoints.Length - 1;
             var temp = Random.Range(0, 2);
             if (temp == 1) point = 0;
+            else point--;
 
             while (point >= 0)
             {
+                audioS.Play();
+
                 while ((transform.position - rollPoints[point].position).magnitude > 0.1f)
                 {
                     float step = maxspd * Time.deltaTime;

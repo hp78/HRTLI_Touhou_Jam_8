@@ -97,11 +97,12 @@ public class BossBase : MonoBehaviour
             if (currentHealth <= 0f)
             {
                 phaseEnd = true;
-
-                if(thisboss == BOSS.RAN)
-                LevelController.instance.GoToNextLevel("YuyukoBoss");
+                if (phaseNumber >= listOfPhases.Length)
+                { 
+                if (thisboss == BOSS.RAN)
+                    LevelController.instance.GoToNextLevel("YuyukoBoss");
                 //if(thisboss == BOSS.YUYUKO)
-
+                }
             }
         }
         internalFlickerCD = flickerCD;
