@@ -23,6 +23,9 @@ public class YuyukoAtkWave : AtkBase
     int internalspawnWaveAmt;
     float internalspawnWaveCD;
 
+    public Animator anim;
+
+
     bool invert;
     float internalSpawnCD;
     float internalDuration;

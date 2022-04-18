@@ -48,6 +48,8 @@ public class RanAtk1 : AtkBase
     {
         animator.Play("Spin");
         ranSprite.SetActive(false);
+        yield return new WaitForSeconds(.6f);
+
         spinCol.enabled = true;
         if (!reverse)
         {

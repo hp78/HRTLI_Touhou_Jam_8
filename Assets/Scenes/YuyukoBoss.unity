@@ -1245,11 +1245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9001407802995779379, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.97
+      value: -6.72
       objectReference: {fileID: 0}
     - target: {fileID: 9001407802995779379, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.81
+      value: 4.48
       objectReference: {fileID: 0}
     - target: {fileID: 9001407802995779379, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1422,7 +1422,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723794138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.95738053, y: 14.405852, z: -2.630172}
+  m_LocalPosition: {x: 5.28, y: 8.58, z: -2.630172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 571209376}
@@ -1488,6 +1488,7 @@ MonoBehaviour:
     - {fileID: 723794145}
     - {fileID: 723794147}
     - {fileID: 723794140}
+    - {fileID: 723794142}
   - listOfAtk:
     - {fileID: 723794147}
     - {fileID: 723794140}
@@ -1559,6 +1560,7 @@ MonoBehaviour:
   spawnAmt: 140
   spawnWaveAmt: 3
   spawnWaveCD: 0.1
+  anim: {fileID: 0}
 --- !u!114 &723794145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,11 +1630,11 @@ MonoBehaviour:
   spawnCD: 0.5
   spawnAmt: 3
   upgradeCD: 0.4
-  upgradeMove: 7
+  upgradeMove: 10
   upgradeAmt: 2
   spawnExtra: 0
-  trackSpeed: 10
-  trackTime: 3.5
+  trackSpeed: 20
+  trackTime: 1.5
   particles: {fileID: 2081936731}
   yykWoke: {fileID: 861048551}
   yykNormal: {fileID: 1749143046}

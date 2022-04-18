@@ -15,6 +15,7 @@ public class YuyukoAtkMeleeSlap : AtkBase
     public int upgradeAmt;
     public int spawnAmt;
 
+
     bool invert;
     bool flip;
     float internalSpawnCD;

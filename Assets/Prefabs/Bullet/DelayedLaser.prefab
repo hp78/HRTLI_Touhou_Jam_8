@@ -50,7 +50,7 @@ MonoBehaviour:
   maxSize: 2
   growthSpd: 10
   fadeSpd: 1
-  activationDelay: 4
+  activationDelay: 2.25
   activated: 0
 --- !u!1 &1785160826589291189
 GameObject:

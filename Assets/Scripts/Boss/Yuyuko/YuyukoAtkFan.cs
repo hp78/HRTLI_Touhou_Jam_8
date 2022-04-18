@@ -91,6 +91,8 @@ public class YuyukoAtkFan : AtkBase
         animator.Play("Default");
         yykNormal.SetActive(true);
         yykWoke.SetActive(false);
+
+        yield return new WaitForSeconds(1.5f);
         bossBase.AtkIsDone();
 
         yield return 0;

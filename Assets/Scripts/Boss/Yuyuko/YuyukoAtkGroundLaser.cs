@@ -58,7 +58,7 @@ public class YuyukoAtkGroundLaser : AtkBase
         spawnCD -= upgradeCD;
         spawnAmt += upgradeAmt;
         trackSpeed += upgradeMove;
-        trackTime += 0.5f;
+        trackTime = 2f;
         spawnExtra = true;
     }
     IEnumerator Move()

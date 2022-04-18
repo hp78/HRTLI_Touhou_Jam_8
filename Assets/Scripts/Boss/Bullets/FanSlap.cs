@@ -29,6 +29,7 @@ public class FanSlap : MonoBehaviour
 
     IEnumerator Fire()
     {
+
         while(sprite.color.a >0.0f)
         {
             if(reverse)
