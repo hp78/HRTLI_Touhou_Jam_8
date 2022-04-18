@@ -15,12 +15,19 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         currentLevel = SceneManager.GetActiveScene().ToString();
+        Time.timeScale = 0f;
     }
 
     //
     public void StartLevel()
     {
         Time.timeScale = 1f;
+    }
+
+    //
+    public void PlayerDiedSeq()
+    {
+        levelTransitionAnimator.Play("PlayerDeath");
     }
 
     //
@@ -41,7 +48,7 @@ public class LevelController : MonoBehaviour
     public void GoToNextLevel()
     {
         Time.timeScale = 0f;
-        levelTransitionAnimator.Play("TransitOut");
+        levelTransitionAnimator.Play("EndLevel");
     }
 
     //

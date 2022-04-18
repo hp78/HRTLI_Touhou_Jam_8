@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //anim = GetComponent<Animator>();
+        isPlayerAlive.val = true;
+
         rigidbody2d = GetComponent<Rigidbody2D>();
         currHealth = 100;
 
@@ -491,6 +493,7 @@ public class PlayerController : MonoBehaviour
         if (currHealth <= 0)
         {
             isPlayerAlive.val = false;
+            LevelController.instance.PlayerDiedSeq();
         }
         else
         {
