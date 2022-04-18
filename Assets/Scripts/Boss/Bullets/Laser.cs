@@ -51,13 +51,15 @@ public class Laser : MonoBehaviour
         }
         boxCol.enabled = true;
 
+        yield return new WaitForSeconds(0.1f);
+
+        boxCol.enabled = false;
         while(spriteR.color.a >0f)
         {
             spriteR.color = new Color(1, 1, 1, spriteR.color.a - (fadeSpd * Time.deltaTime));
             yield return 0;
 
         }
-        boxCol.enabled = false;
 
         Destroy(this.gameObject, 0.5f);
         yield return 0;

@@ -9,32 +9,57 @@ public class YuyukoAtkGroundLaser : AtkBase
     public Transform groundlaserGroup;
     public Transform movePt;
 
+    public Transform player;
+    public Transform ground;
+
     public float spawnCD;
     public int spawnAmt;
 
-    bool spawnExtra;
+    public float upgradeCD;
+    public float upgradeMove;
+    public int upgradeAmt;
 
+    public bool spawnExtra;
 
     public float trackSpeed;
-    public float delay;
+    public float trackTime;
+
     float internalSpawnCD;
+    float internaltrackTime;
+
     int internalAmt;
 
     public GameObject particles;
-
     public GameObject yykWoke;
     public GameObject yykNormal;
     public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        bossBase = GetComponent<BossBase>();
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public override void StartSkill()
+    {
+        StartCoroutine(Move());
+    }
+    public override void UpgradeSkill()
+    {
+        spawnCD -= upgradeCD;
+        spawnAmt += upgradeAmt;
+        trackSpeed += upgradeMove;
+        trackTime += 0.5f;
+        spawnExtra = true;
     }
     IEnumerator Move()
     {
@@ -58,8 +83,8 @@ public class YuyukoAtkGroundLaser : AtkBase
         particles.SetActive(true);
 
         internalAmt = spawnAmt;
-        internalSpawnCD = spawnCD;
-        particles.SetActive(true);
+        internaltrackTime = trackTime;
+
         while (internalAmt > 0)
         {
             while (internalSpawnCD > 0.0f)
@@ -67,10 +92,29 @@ public class YuyukoAtkGroundLaser : AtkBase
                 internalSpawnCD -= Time.deltaTime;
                 yield return 0;
             }
+            Transform temp;
 
-            //Instantiate(fanlaser, transform.position, Quaternion.identity);
+             if (!spawnExtra)
+             temp = Instantiate(groundlaser, transform.position, Quaternion.identity).transform;
+             else
+             temp = Instantiate(groundlaserGroup, transform.position, Quaternion.identity).transform;
+
+            Vector3 point = new Vector3(player.position.x, ground.position.y + 1f, 0.0f);
+            while (internaltrackTime > 0.0f)
+            {
+ 
+                point = new Vector3(player.position.x, ground.position.y + 1f, 0.0f);
+                float step = trackSpeed * Time.deltaTime;
+
+                temp.transform.position = Vector2.MoveTowards(temp.transform.position, point, step);
+
+                internaltrackTime -= Time.deltaTime;
+                yield return 0;
+
+            }
+
             internalSpawnCD = spawnCD;
-
+            internaltrackTime = trackTime;
             internalAmt--;
             yield return 0;
 
@@ -78,10 +122,10 @@ public class YuyukoAtkGroundLaser : AtkBase
 
         // yield return new WaitForSeconds(2f);
         particles.SetActive(false);
-        animator.Play("PoP");
+        animator.Play("Default");
         yykNormal.SetActive(true);
         yykWoke.SetActive(false);
-        StartCoroutine(Fire());
+
         bossBase.AtkIsDone();
 
         yield return 0;

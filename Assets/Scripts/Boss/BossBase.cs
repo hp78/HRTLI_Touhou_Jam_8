@@ -6,7 +6,7 @@ public class BossBase : MonoBehaviour
 {
     public BossStats Stats;
 
-    int rand;
+    int rand=-1;
     bool repeat = false;
 
     public float currentHealth;

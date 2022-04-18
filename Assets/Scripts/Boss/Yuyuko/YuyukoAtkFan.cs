@@ -10,6 +10,8 @@ public class YuyukoAtkFan : AtkBase
     public Transform movePt;
 
     public float spawnCD;
+    public float upgradeCD;
+    public int upgradeAmt;
     public int spawnAmt;
 
 
@@ -24,6 +26,7 @@ public class YuyukoAtkFan : AtkBase
     // Start is called before the first frame update
     void Start()
     {
+        bossBase = GetComponent<BossBase>();
 
     }
 
@@ -38,7 +41,11 @@ public class YuyukoAtkFan : AtkBase
         StartCoroutine(Move());
 
     }
-
+    public override void UpgradeSkill()
+    {
+        spawnCD -= upgradeCD;
+        spawnAmt += upgradeAmt;
+    }
     IEnumerator Move()
     {
         while ((transform.position - movePt.position).magnitude > 0.1f)
@@ -79,12 +86,11 @@ public class YuyukoAtkFan : AtkBase
 
         }
 
-        // yield return new WaitForSeconds(2f);
+
         particles.SetActive(false);
-        animator.Play("PoP");
+        animator.Play("Default");
         yykNormal.SetActive(true);
         yykWoke.SetActive(false);
-        StartCoroutine(Fire());
         bossBase.AtkIsDone();
 
         yield return 0;
