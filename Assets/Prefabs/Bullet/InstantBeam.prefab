@@ -255,6 +255,7 @@ MonoBehaviour:
   beamsprite: {fileID: 8683155316548866916}
   groundSpriteR: {fileID: 6870841500902746110}
   beamSpriteR: {fileID: 8257713727677455496}
+  col: {fileID: 576734974438277596}
   shrinkSpd: 0
   unFadeSpd: 0
   maxSize: 2

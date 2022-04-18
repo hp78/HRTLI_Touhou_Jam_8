@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YuyukoAtkFan : AtkBase
+public class YuyukoAtkGroundLaser : AtkBase
 {
-
     public float moveSpeed;
-    public Transform fanlaser;
+    public Transform groundlaser;
+    public Transform groundlaserGroup;
     public Transform movePt;
 
     public float spawnCD;
     public int spawnAmt;
 
+    bool spawnExtra;
 
-    public GameObject particles;
+
+    public float trackSpeed;
+    public float delay;
     float internalSpawnCD;
     int internalAmt;
+
+    public GameObject particles;
 
     public GameObject yykWoke;
     public GameObject yykNormal;
     public Animator animator;
-
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -32,13 +36,6 @@ public class YuyukoAtkFan : AtkBase
     {
         
     }
-
-    public override void StartSkill()
-    {
-        StartCoroutine(Move());
-
-    }
-
     IEnumerator Move()
     {
         while ((transform.position - movePt.position).magnitude > 0.1f)
@@ -70,8 +67,8 @@ public class YuyukoAtkFan : AtkBase
                 internalSpawnCD -= Time.deltaTime;
                 yield return 0;
             }
-            
-            Instantiate(fanlaser, transform.position, Quaternion.identity);
+
+            //Instantiate(fanlaser, transform.position, Quaternion.identity);
             internalSpawnCD = spawnCD;
 
             internalAmt--;

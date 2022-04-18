@@ -31,7 +31,6 @@ public class YuyukoAtkWave : AtkBase
     void Start()
     {
         bossBase = GetComponent<BossBase>();
-        StartCoroutine(Move());
 
     }
 
@@ -96,8 +95,8 @@ public class YuyukoAtkWave : AtkBase
             yield return 0;
 
         }
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(Fire());
+        bossBase.AtkIsDone();
+
 
         yield return 0;
     }

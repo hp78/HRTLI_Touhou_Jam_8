@@ -54,7 +54,7 @@ public class RanAtk3 : AtkBase
                 internalSpawnCD -= Time.deltaTime;
                 yield return 0;
             }
-            Vector3 pos = new Vector3(Random.Range(-20f,20f), groundLevel.position.y, 0.0f);
+            Vector3 pos = new Vector3(Random.Range(-13f,13f), groundLevel.position.y, 0.0f);
             Instantiate(beam, pos, Quaternion.identity);
             internalSpawnCD = spawnCD;
                

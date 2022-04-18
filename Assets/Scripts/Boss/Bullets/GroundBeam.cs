@@ -10,6 +10,8 @@ public class GroundBeam : MonoBehaviour
     public SpriteRenderer groundSpriteR;
     public SpriteRenderer beamSpriteR;
 
+    public BoxCollider2D col;
+
     public float shrinkSpd;
     public float unFadeSpd;
 
@@ -42,8 +44,8 @@ public class GroundBeam : MonoBehaviour
         }
         groundsprite.gameObject.SetActive(false);
         beamsprite.gameObject.SetActive(true);
-
-        while(beamsprite.localScale.x < maxSize)
+        col.enabled = true;
+        while (beamsprite.localScale.x < maxSize)
         {
             beamsprite.localScale = new Vector3(beamsprite.localScale.x + (growthSpd * Time.deltaTime), beamsprite.localScale.y, beamsprite.localScale.z);
             if (beamSpriteR.color.a < 1.0f)
@@ -51,11 +53,13 @@ public class GroundBeam : MonoBehaviour
                 beamSpriteR.color = new Color(1, 1, 1, beamSpriteR.color.a + (unFadeSpdBeam * Time.deltaTime));
 
             }
- 
+            
 
             yield return 0;
         }
-        while(beamSpriteR.color.a >0.0f)
+        col.enabled = false;
+
+        while (beamSpriteR.color.a >0.0f)
         {
             beamSpriteR.color = new Color(1, 1, 1, beamSpriteR.color.a - (fadeSpd * Time.deltaTime));
             yield return 0;

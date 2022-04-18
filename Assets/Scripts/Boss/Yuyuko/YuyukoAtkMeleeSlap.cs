@@ -6,10 +6,12 @@ public class YuyukoAtkMeleeSlap : AtkBase
 {
     public Transform fans;
     public Transform player;
+    public Transform ground;
     public float moveSpd;
 
     public float spawnCD;
     public float upgradeCD;
+    public float upgradeMove;
     public int upgradeAmt;
     public int spawnAmt;
 
@@ -23,7 +25,6 @@ public class YuyukoAtkMeleeSlap : AtkBase
     {
         bossBase = GetComponent<BossBase>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(Move());
 
     }
 
@@ -32,7 +33,12 @@ public class YuyukoAtkMeleeSlap : AtkBase
         StartCoroutine(Move());
 
     }
-
+    public override void UpgradeSkill()
+    {
+        spawnCD -= upgradeCD;
+        spawnAmt += upgradeAmt;
+        moveSpd += upgradeMove;
+    }
     IEnumerator Fire()
     {
 
@@ -67,14 +73,16 @@ public class YuyukoAtkMeleeSlap : AtkBase
 
                 }
                 --internalAmt;
+                Vector3 point = new Vector3(player.position.x, ground.position.y + 1f, 0.0f);
 
-                while ((transform.position - player.position).magnitude > 2.5f)
+                while ((transform.position - point).magnitude > 2f)
                 {
+                    point = new Vector3(player.position.x, ground.position.y + 1f, 0.0f);
                     float step = moveSpd * Time.deltaTime;
                     if (transform.position.x - player.position.x < 0.0f) flip = true;
                     else flip = false;
                     // move sprite towards the target location
-                    transform.position = Vector2.MoveTowards(transform.position, player.position, step);
+                    transform.position = Vector2.MoveTowards(transform.position, point, step);
                     yield return 0;
                 }
                 internalSpawnCD = spawnCD;
@@ -83,8 +91,7 @@ public class YuyukoAtkMeleeSlap : AtkBase
             yield return 0;
 
         }
-        // bossBase.AtkIsDone();
-        StartCoroutine(Move());
+         bossBase.AtkIsDone();
 
 
         yield return 0;
@@ -92,13 +99,15 @@ public class YuyukoAtkMeleeSlap : AtkBase
 
     IEnumerator Move()
     {
-        while ((transform.position - player.position).magnitude > 2.5f)
+        Vector3 point = new Vector3(player.position.x, ground.position.y+1f, 0.0f);
+        while ((transform.position - point).magnitude > 2f)
         {
+            point = new Vector3(player.position.x, ground.position.y+1f, 0.0f);
             float step = moveSpd * Time.deltaTime;
             if (transform.position.x - player.position.x < 0.0f) flip = true;
            else flip = false;
             // move sprite towards the target location
-            transform.position = Vector2.MoveTowards(transform.position, player.position, step);
+            transform.position = Vector2.MoveTowards(transform.position, point, step);
             yield return 0;
         }
         StartCoroutine(Fire());

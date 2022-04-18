@@ -7,7 +7,6 @@ public class YuyukoAtkHomingFans : AtkBase
     [SerializeField] Transform[] rollPoints;
     [SerializeField] float maxspd;
     [SerializeField] int point;
-
     public GameObject fans;
 
     public float spawnCD;
@@ -23,14 +22,17 @@ public class YuyukoAtkHomingFans : AtkBase
     void Start()
     {
         bossBase = GetComponent<BossBase>();
-        StartSkill();
     }
 
     public override void StartSkill()
     {
-        StartCoroutine(Fire());
         StartCoroutine(Move());
 
+    }
+    public override void UpgradeSkill()
+    {
+        spawnCD -= upgradeCD;
+        spawnAmt+=upgradeAmt;
     }
 
     IEnumerator Fire()
@@ -46,7 +48,7 @@ public class YuyukoAtkHomingFans : AtkBase
                 yield return 0;
             }
             var fan = Instantiate(fans, transform.position, Quaternion.identity).GetComponent<HomingFan>();
-            fan.firePoint = new Vector3(transform.position.x + Random.Range(-20f, 20f), transform.position.y + Random.Range(-5f, 5f), 0.0f);
+            fan.firePoint = new Vector3(transform.position.x + Random.Range(-5f, 5f), transform.position.y + Random.Range(1f, 4f), 0.0f);
             internalSpawnCD = spawnCD;
 
             internalAmt--;
@@ -54,7 +56,6 @@ public class YuyukoAtkHomingFans : AtkBase
 
         }
         yield return new WaitForSeconds(3f);
-        StartCoroutine(Fire());
 
         yield return 0;
     }
@@ -72,10 +73,11 @@ public class YuyukoAtkHomingFans : AtkBase
             transform.position = Vector2.MoveTowards(transform.position, rollPoints[point].position, step);
             yield return 0;
         }
+        StartCoroutine(Fire());
 
+         bossBase.AtkIsDone();
 
         yield return 0;
-        // bossBase.AtkIsDone();
 
     }
 }

@@ -24,6 +24,7 @@ public class HomingFan : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         ground = GameObject.FindGameObjectWithTag("Ground").transform;
         StartCoroutine(Fire());
+        anim.speed = 0.25f;
 
     }
 
@@ -45,6 +46,9 @@ public class HomingFan : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, firePoint, step);
             }
             startSpeed -= decel *Time.deltaTime;
+            
+            anim.speed += 0.4f*Time.deltaTime;
+
             yield return 0;
 
         }

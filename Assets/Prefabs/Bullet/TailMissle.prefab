@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6344437492064119824}
   - component: {fileID: 6344437492064119823}
   - component: {fileID: 6344437492064119822}
-  - component: {fileID: 6344437492064119821}
   - component: {fileID: 6344437492064119825}
   - component: {fileID: 631691884397908510}
+  - component: {fileID: 8954100009720101920}
   m_Layer: 10
   m_Name: TailMissle
   m_TagString: Untagged
@@ -103,32 +103,6 @@ MonoBehaviour:
   startSpeed: -10
   accel: 30
   duration: 10
---- !u!61 &6344437492064119821
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6344437492064119820}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8984375, y: 2.0390625}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &6344437492064119825
 Rigidbody2D:
   serializedVersion: 4
@@ -191,7 +165,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Time: 2
+  m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.6
@@ -257,3 +231,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!58 &8954100009720101920
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344437492064119820}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25

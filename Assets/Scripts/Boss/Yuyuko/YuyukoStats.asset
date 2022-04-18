@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2260c621d8a78f44c9f96170090c8642, type: 3}
   m_Name: YuyukoStats
   m_EditorClassIdentifier: 
-  Health: []
+  Health:
+  - 100
+  - 100
+  - 100
