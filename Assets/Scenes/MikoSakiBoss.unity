@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd048945927967a4cbfb318beaa1f388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 10
+  dmg: 5
   isPerma: 1
 --- !u!1 &283201045
 GameObject:
@@ -1297,13 +1297,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1515419728}
-  m_Layer: 0
-  m_Name: MeleePos
-  m_TagString: Untagged
+  - component: {fileID: 1515419730}
+  - component: {fileID: 1515419729}
+  m_Layer: 10
+  m_Name: WideSlashHitbox
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1515419728
 Transform:
   m_ObjectHideFlags: 0
@@ -1312,12 +1314,42 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515419727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448577088}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1515419729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515419727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd048945927967a4cbfb318beaa1f388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 20
+  isPerma: 1
+--- !u!58 &1515419730
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515419727}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.25, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.5
 --- !u!1 &1527976247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd048945927967a4cbfb318beaa1f388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 10
+  dmg: 5
   isPerma: 1
 --- !u!1 &1676982224
 GameObject:
@@ -1563,9 +1595,10 @@ GameObject:
   - component: {fileID: 1692048540}
   - component: {fileID: 1692048539}
   - component: {fileID: 1692048542}
-  m_Layer: 0
+  - component: {fileID: 1692048543}
+  m_Layer: 8
   m_Name: BossMiko
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1601,7 +1634,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.5}
@@ -1642,6 +1675,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1692048543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692048538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4edc7a21c47e9145acbeea6008ad3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  spriteRend: {fileID: 2113535906}
 --- !u!1 &1743084531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,7 +2017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4920183049597498418, guid: 57d66cc72e7b8d34abf544a2a3c35633, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.63
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4920183049597498418, guid: 57d66cc72e7b8d34abf544a2a3c35633, type: 3}
       propertyPath: m_LocalPosition.z

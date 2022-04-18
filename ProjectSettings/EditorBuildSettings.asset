@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MikoSakiBoss.unity
+    guid: 7692e1f25ebf59d4fb35fa01194aa60d
   m_configObjects: {}

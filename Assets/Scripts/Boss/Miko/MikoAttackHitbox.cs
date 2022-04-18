@@ -22,7 +22,7 @@ public class MikoAttackHitbox : MonoBehaviour
         if(pc != null)
         {
             Vector2 temp = collision.transform.position - this.transform.position;
-            collision.GetComponent<PlayerController>().DamagePlayerWithKnockback(dmg, temp * 10f);
+            collision.GetComponent<PlayerController>().DamagePlayerWithKnockback(dmg, temp * 2.5f);
         }
     }
 }

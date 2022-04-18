@@ -20,6 +20,15 @@ public class PlayerAttack : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
-            collision.GetComponent<BossBase>().TakeDamage(damage);
+        {
+            if (collision.GetComponent<BossBase>())
+                collision.GetComponent<BossBase>().TakeDamage(damage);
+
+            if (collision.GetComponent<BossMikoSakiScript>())
+                collision.GetComponent<BossMikoSakiScript>().TakeDamage(damage);
+
+            if (collision.GetComponent<BossMikoScript>())
+                collision.GetComponent<BossMikoScript>().TakeDamage(damage);
+        }
     }
 }
