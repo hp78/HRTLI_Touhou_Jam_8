@@ -14,6 +14,7 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         currentLevel = SceneManager.GetActiveScene().ToString();
         Time.timeScale = 0f;
     }
