@@ -87,6 +87,9 @@ public class PlayerController : MonoBehaviour
     public GameObject rSpear;
     public GameObject rShield;
 
+    [Header("Fumo")]
+    public GameObject fumo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -291,7 +294,6 @@ public class PlayerController : MonoBehaviour
 
     void SpearAttack()
     {
-        Debug.Log("Spear attack");
         if (currChain == 0)
         {
             anim.CrossFade("Spear1", 0.01f);
@@ -493,6 +495,8 @@ public class PlayerController : MonoBehaviour
         if (currHealth <= 0)
         {
             isPlayerAlive.val = false;
+            fumo.SetActive(true);
+            topRoot.SetActive(false);
             LevelController.instance.PlayerDiedSeq();
         }
         else
