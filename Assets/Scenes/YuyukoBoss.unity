@@ -1229,7 +1229,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 551965336053191167, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9001407802995779378, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
       propertyPath: m_Name
@@ -1286,6 +1286,10 @@ PrefabInstance:
     - target: {fileID: 9001407804044487359, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001407804354611504, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9001407804388133027, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
       propertyPath: m_LocalScale.x
@@ -1468,7 +1472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stats: {fileID: 11400000, guid: 1aa1a202bc146e74696c5edd49fef84b, type: 2}
-  thisboss: 0
+  thisboss: 1
   hitSFXList:
   - {fileID: 8300000, guid: 76bbac18cbb57fe4d94999dd73a39676, type: 3}
   - {fileID: 8300000, guid: f2db53911ab11f446826a489f5d6efd2, type: 3}
@@ -1749,6 +1753,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4967300078790788371, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d5f95cd6419f34145b6c7dad7f8314cc, type: 3}
     - target: {fileID: 6598268541944924800, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}
       propertyPath: m_Name
       value: LevelController

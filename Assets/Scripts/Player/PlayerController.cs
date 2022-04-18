@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour
     [Header("Fumo")]
     public GameObject fumo;
 
+    public AudioSource oofSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -523,7 +525,7 @@ public class PlayerController : MonoBehaviour
         currInvulframe = 0.0f;
         isPlayerInvul = true;
         spriteRend.gameObject.SetActive(true);
-
+        oofSound.Play();
         while (currInvulframe < invulFrameMax)
         {
             spriteRend.color = Color.red;

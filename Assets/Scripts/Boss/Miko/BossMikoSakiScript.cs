@@ -9,6 +9,10 @@ public class BossMikoSakiScript : MonoBehaviour
     public SpriteRenderer spriteRend;
     Coroutine flicker;
 
+    public AudioClip[] hitSFXList;
+    public AudioSource AudioS;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +64,9 @@ public class BossMikoSakiScript : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         currentHealth -= dmg;
+        int rand = UnityEngine.Random.Range(0, hitSFXList.Length);
+        AudioS.clip = hitSFXList[rand];
+        AudioS.Play();
         if (currentHealth <= 0f)
         {
             LevelController.instance.GoToNextLevel("MikoSakiCutscene");

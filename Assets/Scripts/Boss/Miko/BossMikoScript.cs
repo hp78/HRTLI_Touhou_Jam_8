@@ -9,6 +9,9 @@ public class BossMikoScript : MonoBehaviour
     public SpriteRenderer spriteRend;
     Coroutine flicker;
 
+    public AudioClip[] hitSFXList;
+    public AudioSource AudioS;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +61,9 @@ public class BossMikoScript : MonoBehaviour
     //
     public void TakeDamage(float dmg)
     {
+        int rand = UnityEngine.Random.Range(0, hitSFXList.Length);
+        AudioS.clip = hitSFXList[rand];
+        AudioS.Play();
         currentHealth -= dmg;
         if (currentHealth <= 0f)
         {

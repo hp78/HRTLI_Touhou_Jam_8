@@ -127,6 +127,11 @@ public class BossBase : MonoBehaviour
                     {
                         LevelController.instance.GoToNextLevel("RanCutscene");
                            }
+                    if (thisboss == BOSS.YUYUKO)
+                    {
+                        LevelController.instance.GoToNextLevel("StageEnding");
+                    }
+                    
 
                 }
             }
