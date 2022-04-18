@@ -775,6 +775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 657513786}
   - component: {fileID: 657513787}
+  - component: {fileID: 657513788}
   m_Layer: 8
   m_Name: Animator
   m_TagString: Untagged
@@ -819,6 +820,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &657513788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657513785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfa91486d39e9a4680a66ebedf24e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  sprites:
+  - {fileID: 1977758694}
+  - {fileID: 224837486}
 --- !u!1 &671726774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stats: {fileID: 11400000, guid: 8544724fec0e8534591c4cde0c642161, type: 2}
+  thisboss: 0
   currentHealth: 0
   phaseNumber: 0
   atkNumber: 0
@@ -1565,7 +1583,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.5, y: 2.5}
+  m_Size: {x: 2.5, y: 3}
   m_Direction: 0
 --- !u!1 &819197532
 GameObject:
