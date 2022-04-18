@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage0.unity
     guid: 6ca915f7d8e6328409569edd7887c511
   - enabled: 1
+    path: Assets/Scenes/Stage2rest.unity
+    guid: d1c6f08c8b7da2947b34184af53cf10d
+  - enabled: 1
+    path: Assets/Scenes/Stage1rest.unity
+    guid: 982554f2a29629047896afc261f2c674
+  - enabled: 1
     path: Assets/Scenes/MikoSakiBoss.unity
     guid: 7692e1f25ebf59d4fb35fa01194aa60d
   - enabled: 1

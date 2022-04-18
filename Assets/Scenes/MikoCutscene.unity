@@ -1233,7 +1233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db98dffb46b69b640b827a3e31054125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Ranboss
+  levelToLoad: Stage1rest
 --- !u!1 &1037689597
 GameObject:
   m_ObjectHideFlags: 0
