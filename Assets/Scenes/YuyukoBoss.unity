@@ -1467,6 +1467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stats: {fileID: 11400000, guid: 1aa1a202bc146e74696c5edd49fef84b, type: 2}
+  thisboss: 0
   currentHealth: 100
   phaseNumber: 0
   atkNumber: 0
@@ -1530,7 +1531,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.35}
-  m_Size: {x: 1.5, y: 3.25}
+  m_Size: {x: 2.5, y: 3.25}
   m_Direction: 0
 --- !u!114 &723794144
 MonoBehaviour:
@@ -1862,6 +1863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stats: {fileID: 11400000, guid: 8544724fec0e8534591c4cde0c642161, type: 2}
+  thisboss: 0
   currentHealth: 0
   phaseNumber: 0
   atkNumber: 0

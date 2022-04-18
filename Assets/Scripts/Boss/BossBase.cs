@@ -4,8 +4,14 @@ using UnityEngine;
 using System;
 public class BossBase : MonoBehaviour
 {
-    public BossStats Stats;
 
+    public enum BOSS
+    {
+        RAN,
+        YUYUKO
+    }
+    public BossStats Stats;
+    public BOSS thisboss;
     int rand=-1;
     bool repeat = false;
 
@@ -91,6 +97,11 @@ public class BossBase : MonoBehaviour
             if (currentHealth <= 0f)
             {
                 phaseEnd = true;
+
+                if(thisboss == BOSS.RAN)
+                LevelController.instance.GoToNextLevel("YuyukoBoss");
+                //if(thisboss == BOSS.YUYUKO)
+
             }
         }
         internalFlickerCD = flickerCD;
