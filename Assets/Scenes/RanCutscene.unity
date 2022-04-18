@@ -1354,6 +1354,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9001407804044487352, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
+    - {fileID: 9001407802995779372, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
+    - {fileID: 9001407802995779373, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
+    - {fileID: 9001407802995779374, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
 --- !u!4 &689341055 stripped
 Transform:
@@ -1544,13 +1547,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 780827350}
-  - component: {fileID: 780827353}
-  - component: {fileID: 780827352}
-  - component: {fileID: 780827351}
-  - component: {fileID: 780827349}
-  - component: {fileID: 780827348}
-  - component: {fileID: 780827355}
-  - component: {fileID: 780827354}
   m_Layer: 8
   m_Name: Ran
   m_TagString: Enemy
@@ -1558,59 +1554,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &780827348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780827347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d4eace5e5e7dc141a24c8f25552da2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  repeat: 1
-  bossBase: {fileID: 0}
-  rollPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  maxspd: 10
-  point: 0
-  missle: {fileID: 6344437492064119820, guid: 59e7c96357bd035469d55a049239dc28, type: 3}
-  spawnCD: 0.25
-  upgradeCD: 0.07
-  upgradeAmt: 5
-  spawnAmt: 5
-  ranWoke: {fileID: 224837484}
-  ranNormal: {fileID: 1977758692}
-  animator: {fileID: 0}
---- !u!114 &780827349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780827347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88def5f48f37de64e8bbdbee90a960e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  repeat: 0
-  bossBase: {fileID: 0}
-  beam: {fileID: 4070268264033325161, guid: dfce65bb45db5054d91d9ffb37ea7c9f, type: 3}
-  groundLevel: {fileID: 0}
-  player: {fileID: 0}
-  spawnCD: 0.25
-  spawnAmt: 15
-  ranWoke: {fileID: 224837484}
-  ranNormal: {fileID: 1977758692}
-  animator: {fileID: 0}
-  particles: {fileID: 1149435697}
 --- !u!4 &780827350
 Transform:
   m_ObjectHideFlags: 0
@@ -1628,140 +1571,6 @@ Transform:
   m_Father: {fileID: 319023414}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &780827351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780827347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790fbac5fda30b641bb39be2e8516e18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  repeat: 0
-  bossBase: {fileID: 0}
-  fireSpots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  laser: {fileID: 5340449456497581840, guid: 917b5e2b3c840424f9723d61a8390cad, type: 3}
-  target: {fileID: 1831403381}
-  audioS: {fileID: 1831403383}
-  targetMovement: 13
-  duration: 5
-  spawnCD: 0.3
-  upgradeCD: 0.1
-  upgradeAmt: 6
-  spawnAmt: 12
-  ranWoke: {fileID: 224837484}
-  ranNormal: {fileID: 1977758692}
-  animator: {fileID: 0}
---- !u!114 &780827352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780827347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df6566519cdcc164f91aaa2e296ec114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  repeat: 1
-  bossBase: {fileID: 0}
-  rollPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  point: 0
-  maxspd: 20
-  accel: 7
-  waitCD: 0.2
-  ranSprite: {fileID: 1977758692}
-  animator: {fileID: 0}
-  spinCol: {fileID: 935660570}
-  audioS: {fileID: 657513789}
---- !u!114 &780827353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780827347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0d3cd6d12ece04baa49b0d4128a160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stats: {fileID: 11400000, guid: 8544724fec0e8534591c4cde0c642161, type: 2}
-  thisboss: 0
-  currentHealth: 0
-  phaseNumber: 0
-  atkNumber: 0
-  cooldown: 1
-  phaseEnd: 0
-  sprites:
-  - {fileID: 682148953}
-  - {fileID: 1977758694}
-  - {fileID: 224837486}
-  flickerCD: 0.1
-  listOfPhases:
-  - listOfAtk:
-    - {fileID: 780827352}
-    - {fileID: 780827351}
-  - listOfAtk:
-    - {fileID: 780827352}
-    - {fileID: 780827351}
-    - {fileID: 780827348}
-  - listOfAtk:
-    - {fileID: 780827352}
-    - {fileID: 780827351}
-    - {fileID: 780827349}
-    - {fileID: 780827348}
---- !u!50 &780827354
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780827347}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!70 &780827355
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780827347}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.5, y: 3}
-  m_Direction: 0
 --- !u!1 &803337748
 GameObject:
   m_ObjectHideFlags: 0
