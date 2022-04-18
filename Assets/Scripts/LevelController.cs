@@ -15,7 +15,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         instance = this;
-        currentLevel = SceneManager.GetActiveScene().ToString();
+        currentLevel = SceneManager.GetActiveScene().name;
         Time.timeScale = 0f;
     }
 
@@ -35,7 +35,7 @@ public class LevelController : MonoBehaviour
     public void RestartLevel()
     {
         levelToLoad = currentLevel;
-        GoToNextLevel();
+        SceneManager.LoadScene(levelToLoad);
     }
 
     //
