@@ -202,7 +202,7 @@ MonoBehaviour:
   firePoint: {x: 0, y: 0, z: 0}
   fadeTime: 0.5
   anim: {fileID: 8837364000661081276}
-  audio: {fileID: 0}
+  audioS: {fileID: 2074270649182965182}
 --- !u!82 &2074270649182965182
 AudioSource:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7b50b07e453362b4fbd2e25a33342c3d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.125
+  m_Volume: 0.075
   m_Pitch: 1
   Loop: 0
   Mute: 0

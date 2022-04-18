@@ -10,6 +10,7 @@ public class GroundBeam : MonoBehaviour
     public SpriteRenderer groundSpriteR;
     public SpriteRenderer beamSpriteR;
 
+    public AudioSource audioS;
     public BoxCollider2D col;
 
     public float shrinkSpd;
@@ -44,6 +45,8 @@ public class GroundBeam : MonoBehaviour
         }
         groundsprite.gameObject.SetActive(false);
         beamsprite.gameObject.SetActive(true);
+        audioS.Play();
+
         col.enabled = true;
         while (beamsprite.localScale.x < maxSize)
         {

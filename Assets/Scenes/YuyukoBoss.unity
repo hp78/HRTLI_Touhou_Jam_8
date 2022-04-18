@@ -452,7 +452,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355155962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 14, z: 0}
+  m_LocalPosition: {x: 0, y: 11.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7148011}
@@ -1407,6 +1407,7 @@ GameObject:
   - component: {fileID: 723794147}
   - component: {fileID: 723794143}
   - component: {fileID: 723794146}
+  - component: {fileID: 723794148}
   m_Layer: 8
   m_Name: Yuyuko
   m_TagString: Enemy
@@ -1422,7 +1423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723794138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.28, y: 8.58, z: -2.630172}
+  m_LocalPosition: {x: 5.34, y: 9.56, z: -2.630172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 571209376}
@@ -1468,6 +1469,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stats: {fileID: 11400000, guid: 1aa1a202bc146e74696c5edd49fef84b, type: 2}
   thisboss: 0
+  hitSFXList:
+  - {fileID: 8300000, guid: 76bbac18cbb57fe4d94999dd73a39676, type: 3}
+  - {fileID: 8300000, guid: f2db53911ab11f446826a489f5d6efd2, type: 3}
+  - {fileID: 8300000, guid: 9f0e56ddb104b394999d1da6fc72ca51, type: 3}
+  AudioS: {fileID: 723794148}
   currentHealth: 100
   phaseNumber: 0
   atkNumber: 0
@@ -1558,7 +1564,7 @@ MonoBehaviour:
   spawnCD: 0.0125
   upgradeCD: 0
   upgradeAmt: 0
-  spawnAmt: 140
+  spawnAmt: 100
   spawnWaveAmt: 3
   spawnWaveCD: 0.1
   anim: {fileID: 0}
@@ -1640,6 +1646,102 @@ MonoBehaviour:
   yykWoke: {fileID: 861048551}
   yykNormal: {fileID: 1749143046}
   animator: {fileID: 571209377}
+--- !u!82 &723794148
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723794138}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.125
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &770941812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1814,6 +1916,7 @@ MonoBehaviour:
   - {fileID: 1640435702}
   laser: {fileID: 5340449456497581840, guid: 917b5e2b3c840424f9723d61a8390cad, type: 3}
   target: {fileID: 1831403381}
+  audioS: {fileID: 0}
   targetMovement: 13
   duration: 5
   spawnCD: 0.3
@@ -1850,6 +1953,7 @@ MonoBehaviour:
   ranSprite: {fileID: 1977758692}
   animator: {fileID: 657513787}
   spinCol: {fileID: 935660570}
+  audioS: {fileID: 0}
 --- !u!114 &780827353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1864,6 +1968,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stats: {fileID: 11400000, guid: 8544724fec0e8534591c4cde0c642161, type: 2}
   thisboss: 0
+  hitSFXList: []
+  AudioS: {fileID: 0}
   currentHealth: 0
   phaseNumber: 0
   atkNumber: 0
@@ -2195,8 +2301,20 @@ PrefabInstance:
       value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8199273865854808955, guid: 57d66cc72e7b8d34abf544a2a3c35633, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199273865854808955, guid: 57d66cc72e7b8d34abf544a2a3c35633, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199273865854808955, guid: 57d66cc72e7b8d34abf544a2a3c35633, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.41
+      value: -1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199273865854808955, guid: 57d66cc72e7b8d34abf544a2a3c35633, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.75
       objectReference: {fileID: 0}
     - target: {fileID: 8199273866102582340, guid: 57d66cc72e7b8d34abf544a2a3c35633, type: 3}
       propertyPath: m_SortingOrder
@@ -2403,7 +2521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalPosition: {x: 0, y: 8.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

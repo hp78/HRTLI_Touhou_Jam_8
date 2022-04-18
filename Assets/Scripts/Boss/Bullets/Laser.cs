@@ -11,6 +11,7 @@ public class Laser : MonoBehaviour
     public float maxSize;
     public float growthSpd;
     public float fadeSpd;
+    public AudioSource audioS;
 
     // Start is called before the first frame update
     public float activationDelay;
@@ -50,7 +51,7 @@ public class Laser : MonoBehaviour
             yield return 0;
         }
         boxCol.enabled = true;
-
+        audioS.Play();
         yield return new WaitForSeconds(0.1f);
 
         boxCol.enabled = false;

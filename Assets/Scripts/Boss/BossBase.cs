@@ -12,6 +12,10 @@ public class BossBase : MonoBehaviour
     }
     public BossStats Stats;
     public BOSS thisboss;
+
+    public AudioClip[] hitSFXList;
+    public AudioSource AudioS;
+
     int rand=-1;
     bool repeat = false;
 
@@ -51,9 +55,8 @@ public class BossBase : MonoBehaviour
     }
     public void AtkIsDone()
     {
-        if(phaseEnd)
+        if (phaseEnd)
         {
-            ++phaseNumber;
             if (phaseNumber >= listOfPhases.Length)
             {
                 End();
@@ -62,14 +65,31 @@ public class BossBase : MonoBehaviour
             else
             {
 
-                currentHealth = Stats.Health[phaseNumber];
-                foreach (AtkBase atk in listOfPhases[phaseNumber-1].listOfAtk)
-                    atk.UpgradeSkill();
-                phaseEnd = false;
+                StartCoroutine(RefillHealth());
+
             }
         }
-        
+        else
             StartCoroutine(PrepareAtk());
+    }
+
+    IEnumerator RefillHealth()
+    {
+        while(currentHealth < Stats.Health[phaseNumber])
+        {
+            currentHealth += 100f * Time.deltaTime;
+            LevelController.instance.UpdateBossHealth(currentHealth / Stats.Health[phaseNumber]);
+
+            yield return 0;
+        }
+
+        foreach (AtkBase atk in listOfPhases[phaseNumber - 1].listOfAtk)
+            atk.UpgradeSkill();
+        phaseEnd = false;
+
+        StartCoroutine(PrepareAtk());
+
+        yield return 0;
     }
 
     IEnumerator PrepareAtk()
@@ -94,18 +114,26 @@ public class BossBase : MonoBehaviour
         if (!phaseEnd)
         {
             currentHealth -= dmg;
+            int rand = UnityEngine.Random.Range(0, hitSFXList.Length);
+            AudioS.clip = hitSFXList[rand];
+            AudioS.Play();
             if (currentHealth <= 0f)
             {
                 phaseEnd = true;
+                ++phaseNumber;
                 if (phaseNumber >= listOfPhases.Length)
-                { 
-                if (thisboss == BOSS.RAN)
-                    LevelController.instance.GoToNextLevel("YuyukoBoss");
-                //if(thisboss == BOSS.YUYUKO)
+                {
+                    if (thisboss == BOSS.RAN)
+                    {
+                        LevelController.instance.GoToNextLevel("RanCutscene");
+                           }
+
                 }
             }
         }
         internalFlickerCD = flickerCD;
+        if (!(phaseNumber >= listOfPhases.Length))
+            LevelController.instance.UpdateBossHealth(currentHealth / Stats.Health[phaseNumber]);
     }
 
     public void End()
