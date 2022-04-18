@@ -8,4 +8,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MikoSakiBoss.unity
     guid: 7692e1f25ebf59d4fb35fa01194aa60d
+  - enabled: 1
+    path: Assets/Scenes/Boss Test Scene.unity
+    guid: 6d5ffb99e8da0df4e879c6f066204c35
+  - enabled: 1
+    path: Assets/Scenes/MikoBoss.unity
+    guid: 187bb7c6ec687dc41a75f6f108791ccf
+  - enabled: 1
+    path: Assets/Scenes/MikoCutscene.unity
+    guid: 6d5c72f9cd6f06141ab31498ca11071d
+  - enabled: 1
+    path: Assets/Scenes/MikoSakiCutscene.unity
+    guid: c9858cf4f59bc1a498bdcea254446b65
+  - enabled: 1
+    path: Assets/Scenes/Ranboss.unity
+    guid: 6d0383f770005fe49b671ab520a770ed
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Testboss.unity
+    guid: 12dd7b0f771ea6345b7e6bbba6425d69
+  - enabled: 1
+    path: Assets/Scenes/YuyukoBoss.unity
+    guid: 1139aca66284eb948bad6d5246bff984
   m_configObjects: {}

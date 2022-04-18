@@ -939,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9001407802995779379, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9001407802995779379, guid: daa74d74ba389a346a610a2c63f42828, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1554,7 +1554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8665495f128548746a0c9b8549c15920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 150
+  currentHealth: 225
   spriteRend: {fileID: 2113535906}
 --- !u!1 &1743084531
 GameObject:
