@@ -505,7 +505,7 @@ public class PlayerController : MonoBehaviour
         }
         evntUpdateHealth?.Invoke(currHealth);
 
-
+        LevelController.instance.UpdatePlayerHealth(currHealth / 100);
     }
 
     IEnumerator SetInvul()

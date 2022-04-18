@@ -68,6 +68,8 @@ public class BossMikoSakiScript : MonoBehaviour
         if (flicker != null)
             StopCoroutine(flicker);
         flicker = StartCoroutine(ReceiveDamage());
+
+        LevelController.instance.UpdateBossHealth((currentHealth+100) / 200);
     }
 
     IEnumerator ReceiveDamage()

@@ -499,7 +499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283201045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalPosition: {x: 0, y: 7.59, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -544,6 +544,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1098754971175311250, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967300078790788371, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 23d81e8f8d54ec1499b2cb920eacf327, type: 3}
     - target: {fileID: 6598268541944924800, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}
       propertyPath: m_Name
       value: LevelController
@@ -591,6 +599,18 @@ PrefabInstance:
     - target: {fileID: 6598268541944924805, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399844907204508587, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178076726946282631, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623618687012222708, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 511f484e5b7d2a842becd76b190e4b44, type: 3}

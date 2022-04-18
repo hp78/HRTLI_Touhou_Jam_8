@@ -1,11 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class LevelController : MonoBehaviour
 {
     public static LevelController instance;
     public string levelToLoad;
     public string currentLevel;
+
+    public Image playerHP;
+    float playerHPWidth = 280;
+
+    public Image bossHP;
+    float bossHPWidth = 470;
 
     public Animator levelTransitionAnimator;
 
@@ -15,6 +21,16 @@ public class LevelController : MonoBehaviour
         instance = this;
         currentLevel = SceneManager.GetActiveScene().name;
         Time.timeScale = 0f;
+    }
+
+    public void UpdatePlayerHealth(float valPercent)
+    {
+        playerHP.fillAmount = valPercent;
+    }
+
+    public void UpdateBossHealth(float valPercent)
+    {
+        bossHP.fillAmount = valPercent;
     }
 
     //

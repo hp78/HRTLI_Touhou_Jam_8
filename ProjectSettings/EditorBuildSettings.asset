@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Stage0.unity
+    guid: 6ca915f7d8e6328409569edd7887c511
+  - enabled: 1
     path: Assets/Scenes/MikoSakiBoss.unity
     guid: 7692e1f25ebf59d4fb35fa01194aa60d
   - enabled: 1
