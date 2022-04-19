@@ -17,7 +17,7 @@ public class GraceController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currHeld > 2.0f)
+        if(currHeld > 1.5f)
         {
             ChangeLevel();
         }

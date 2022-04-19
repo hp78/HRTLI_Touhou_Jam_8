@@ -164,8 +164,9 @@ public class PlayerController : MonoBehaviour
 
         if (hit || hit2)
         {
+            if(inAir)
+                anim.SetTrigger("TriggerLand");
             inAir = false;
-            anim.SetTrigger("TriggerLand");
         }
         else
         {
@@ -181,7 +182,7 @@ public class PlayerController : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.LeftControl))
         {
             switch(currRWeapon)
             {
@@ -215,38 +216,38 @@ public class PlayerController : MonoBehaviour
         else if (currChain % 2 == 1)
         {
             anim.Play("Fist2");
-            currInputLock = 0.15f;
+            currInputLock = 0.175f;
             ++currChain;
         }
         else
         {
             anim.Play("Fist3");
-            currInputLock = 0.15f;
+            currInputLock = 0.175f;
             ++currChain;
         }
     }
 
     void GunAttack()
     {
-        if (currChain == 0)
+        if (currChain % 4 == 0)
         {
             anim.CrossFade("Gun1", 0.1f);
             currInputLock = 0.4f;
             ++currChain;
         }
-        else if (currChain == 1)
+        else if (currChain % 4 == 1)
         {
             anim.Play("Gun2");
             currInputLock = 0.4f;
             ++currChain;
         }
-        else if (currChain == 2)
+        else if (currChain % 4 == 2)
         {
             anim.Play("Gun3");
             currInputLock = 0.4f;
             ++currChain;
         }
-        else if (currChain == 3)
+        else if (currChain % 4 == 3)
         {
             anim.Play("Gun4");
             currInputLock = 0.75f;
@@ -259,31 +260,31 @@ public class PlayerController : MonoBehaviour
         if (currChain == 0)
         {
             anim.CrossFade("Sword1", 0.05f);
-            currInputLock = 0.5f;
+            currInputLock = 0.47f;
             ++currChain;
         }
         else if (currChain == 1)
         {
             anim.CrossFade("Shield1", 0.05f);
-            currInputLock = 0.5f;
+            currInputLock = 0.47f;
             ++currChain;
         }
         else if (currChain == 2)
         {
             anim.CrossFade("Shield2", 0.05f);
-            currInputLock = 0.5f;
+            currInputLock = 0.47f;
             ++currChain;
         }
         else if (currChain == 3)
         {
             anim.CrossFade("Sword2", 0.05f);
-            currInputLock = 0.5f;
+            currInputLock = 0.47f;
             ++currChain;
         }
         else if (currChain == 4)
         {
             anim.CrossFade("Shield3", 0.05f);
-            currInputLock = 0.5f;
+            currInputLock = 0.47f;
             ++currChain;
         }
         else if (currChain == 5)
@@ -305,16 +306,23 @@ public class PlayerController : MonoBehaviour
         }
         else if (currChain == 1)
         {
-            anim.CrossFade("Spear2", 0.01f);
-            currInputLock = 0.45f;
-            ++currChain;
-        }
-        else if (currChain == 2)
-        {
             anim.CrossFade("Spear3", 0.01f);
             currInputLock = 1.0f;
             ++currChain;
         }
+        else if (currChain % 2 == 0)
+        {
+            anim.CrossFade("Spear2", 0.01f);
+            currInputLock = 0.4f;
+            ++currChain;
+        }
+        else
+        {
+            anim.CrossFade("Spear4", 0.01f);
+            currInputLock = 0.4f;
+            ++currChain;
+        }
+
     }
 
     void Roll()
@@ -323,11 +331,11 @@ public class PlayerController : MonoBehaviour
         {
             if (isPlayerFacingLeft)
             {
-                rigidbody2d.velocity = new Vector2(-1f * moveForce, 0);
+                rigidbody2d.velocity = new Vector2(-1.25f * moveForce, rigidbody2d.velocity.y);
             }
             else
             {
-                rigidbody2d.velocity = new Vector2(1f * moveForce, 0);
+                rigidbody2d.velocity = new Vector2(1.25f * moveForce, rigidbody2d.velocity.y);
             }
         }
         else if(Input.GetKeyDown(KeyCode.LeftShift))
@@ -335,7 +343,7 @@ public class PlayerController : MonoBehaviour
             currChain = 0;
             anim.CrossFade("BodyRoll", 0.01f);
             //anim.SetTrigger("TriggerRoll");
-            currRollTime = 1.0f;
+            currRollTime = 0.75f;
 
             isPlayerInvul = true;
             currInvulframe = 0.0f;
@@ -363,7 +371,7 @@ public class PlayerController : MonoBehaviour
             rGun.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             currRWeapon = PlayerWeapon.SWORD;
             ResetHands();
@@ -373,7 +381,7 @@ public class PlayerController : MonoBehaviour
             rShield.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             currRWeapon = PlayerWeapon.SPEAR;
             ResetHands();
@@ -515,7 +523,7 @@ public class PlayerController : MonoBehaviour
         currInvulframe = 0.0f;
         isPlayerInvul = true;
 
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.7f);
 
         isPlayerInvul = false;
     }

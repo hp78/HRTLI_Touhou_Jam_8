@@ -5818,8 +5818,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_AngularDrag: 0
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -5842,8 +5842,8 @@ MonoBehaviour:
   isPlayerInControl: {fileID: 11400000, guid: 4f6342d436d9fd245b1736610ccaa428, type: 2}
   anim: {fileID: 9001407804044487352}
   moveForce: 10
-  jumpForce: 12
-  jumpThreshold: 0.5
+  jumpForce: 15
+  jumpThreshold: 0.02
   inAir: 0
   currHealth: 0
   rigidbody2d: {fileID: 9001407802995779373}
