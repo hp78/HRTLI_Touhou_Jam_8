@@ -363,7 +363,7 @@ public class PlayerController : MonoBehaviour
             rGun.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             currRWeapon = PlayerWeapon.SWORD;
             ResetHands();
@@ -373,7 +373,7 @@ public class PlayerController : MonoBehaviour
             rShield.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             currRWeapon = PlayerWeapon.SPEAR;
             ResetHands();
