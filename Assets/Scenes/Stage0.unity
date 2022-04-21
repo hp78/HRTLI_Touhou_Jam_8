@@ -858,16 +858,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804507779}
-  m_Text: 'Arrow Keys - Move
+  m_Text: 'Move - Arrow Keys / Left Stick
 
-    Left Shift - Dodge Roll
+    Dodge Roll - C / Left Shift  / Joypad2
 
-    1/2/3/4 - Weapons
+    Weapons
+    - 1/2/3/4 / Dpad
 
-    Z
-    - Attack
+    Attack - Z / Left Ctrl / Joypad0
 
-    X - Jump'
+    Jump - X  / Space
+    / Joypad1'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -962,7 +963,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980005927}
-  m_Text: Hold [Space] to start >>
+  m_Text: 'Hold [Space] to start >>
+
+    (or Joypad4)'
   m_OffsetZ: 5
   m_CharacterSize: 1
   m_LineSpacing: 1

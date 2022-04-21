@@ -62,6 +62,10 @@ public class PlayerController : MonoBehaviour
     public PlayerWeapon currLWeapon = PlayerWeapon.FIST;
     int currChain = 0;
 
+    enum PlayerAction { NULL, ATTACK, ROLL, JUMP };
+    PlayerAction currAction = PlayerAction.NULL;
+    float actionDecay = 0f;
+
     [Space(5)]
     public GameObject shootSpawnPos;
 
@@ -115,15 +119,49 @@ public class PlayerController : MonoBehaviour
         currInputLock -= Time.deltaTime;
         currRollTime -= Time.deltaTime;
 
-        if (currInputLock > 0.0f) return;
+        InputQueue();
+        if (currInputLock > 0.05f) return;
         
         Roll();
-        if (currRollTime > 0.1f) return;
+        if (currRollTime > 0.05f) return;
+
 
         Movement();
         Jump();
         Attack();
         SwitchWeapon();
+    }
+
+    void InputQueue()
+    {
+        actionDecay -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Z) || 
+            Input.GetKeyDown(KeyCode.LeftControl) ||
+            Input.GetButtonDown("Fire1"))
+        {
+            currAction = PlayerAction.ATTACK;
+            actionDecay = 0.375f;
+        }
+        else if(Input.GetKeyDown(KeyCode.X) || 
+            Input.GetKeyDown(KeyCode.LeftAlt) ||
+            Input.GetButtonDown("Fire2"))
+        {
+            currAction = PlayerAction.JUMP;
+            actionDecay = 0.375f;
+        }
+        else if(Input.GetKeyDown(KeyCode.LeftShift) || 
+            Input.GetKeyDown(KeyCode.C) || 
+            Input.GetKeyDown(KeyCode.Space) ||
+            Input.GetButtonDown("Fire3"))
+        {
+            currAction = PlayerAction.ROLL;
+            actionDecay = 0.375f;
+        }
+        else if(actionDecay < 0)
+        {
+            currAction = PlayerAction.NULL;
+        }
     }
 
     void Movement()
@@ -172,16 +210,17 @@ public class PlayerController : MonoBehaviour
             inAir = true;
         }
 
-        if (!inAir && Input.GetKeyDown(KeyCode.X))
+        if (!inAir && currAction == PlayerAction.JUMP) // Input.GetKeyDown(KeyCode.X))
         {
             rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
             anim.SetTrigger("TriggerJump");
+            actionDecay = 0f;
         }
     }
 
     void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (currAction == PlayerAction.ATTACK) // Input.GetKeyDown(KeyCode.Z))
         {
             switch(currRWeapon)
             {
@@ -201,6 +240,7 @@ public class PlayerController : MonoBehaviour
                     SpearAttack();
                         break;
             }
+            actionDecay = 0f;
         }            
     }
 
@@ -312,8 +352,8 @@ public class PlayerController : MonoBehaviour
         else if (currChain == 2)
         {
             anim.CrossFade("Spear3", 0.01f);
-            currInputLock = 1.0f;
-            ++currChain;
+            currInputLock = 1.2f;
+            currChain = 0;
         }
     }
 
@@ -330,7 +370,7 @@ public class PlayerController : MonoBehaviour
                 rigidbody2d.velocity = new Vector2(1f * moveForce, 0);
             }
         }
-        else if(Input.GetKeyDown(KeyCode.LeftShift))
+        else if(currAction == PlayerAction.ROLL) // Input.GetKeyDown(KeyCode.LeftShift))
         {
             currChain = 0;
             anim.CrossFade("BodyRoll", 0.01f);
@@ -340,12 +380,13 @@ public class PlayerController : MonoBehaviour
             isPlayerInvul = true;
             currInvulframe = 0.0f;
             StartCoroutine(SetInvul());
+            actionDecay = 0f;
         }
     }
 
     void SwitchWeapon()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetAxis("DPadX") < 0)
         {
             currRWeapon = PlayerWeapon.FIST;
             ResetHands();
@@ -353,7 +394,7 @@ public class PlayerController : MonoBehaviour
             rFist.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetAxis("DPadY") > 0)
         {
             currRWeapon = PlayerWeapon.GUN;
             ResetHands();
@@ -363,7 +404,7 @@ public class PlayerController : MonoBehaviour
             rGun.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetAxis("DPadX") > 0)
         {
             currRWeapon = PlayerWeapon.SWORD;
             ResetHands();
@@ -373,7 +414,7 @@ public class PlayerController : MonoBehaviour
             rShield.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetAxis("DPadY") < 0)
         {
             currRWeapon = PlayerWeapon.SPEAR;
             ResetHands();

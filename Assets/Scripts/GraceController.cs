@@ -22,7 +22,7 @@ public class GraceController : MonoBehaviour
             ChangeLevel();
         }
 
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Space) || Input.GetButton("Grace"))
         {
             currHeld += Time.deltaTime;
         }
